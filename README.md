@@ -1,6 +1,6 @@
-#_MyRecords_
+# _MyRecords_
 
-##_Planning_
+## _Planning_
 
 - Include 3 activities: Main, MyCollection and MyWishlist
 - Include list view: On MyCollection, populate with mock data
