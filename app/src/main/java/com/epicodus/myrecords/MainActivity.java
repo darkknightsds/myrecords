@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import butterknife.Bind;
@@ -14,6 +15,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.loginButton) Button mLogInButton;
     @Bind(R.id.signupButton) Button mSignUpButton;
+    @Bind(R.id.editUsername) EditText mEditUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
         mLogInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String username = mEditUsername.getText().toString();
                 Intent intent = new Intent(MainActivity.this, MyCollection.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });
