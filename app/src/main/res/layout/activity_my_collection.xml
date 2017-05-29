@@ -16,12 +16,22 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/myCollectionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MyCollection"
+        android:textSize="30sp"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_below="@+id/usernameWelcome"
+        android:layout_centerHorizontal="true" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/userAlbums"
         android:textColor="@color/colorPrimaryText"
-        android:layout_below="@+id/usernameWelcome"
+        android:layout_below="@+id/myCollectionHeader"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
