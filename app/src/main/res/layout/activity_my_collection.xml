@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text="Username"
+        android:text="Welcome!"
+        android:textColor="@color/colorPrimaryText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/userAlbums"
+        android:textColor="@color/colorPrimaryText"
         android:layout_below="@+id/usernameWelcome"
         android:layout_centerHorizontal="true" />
 

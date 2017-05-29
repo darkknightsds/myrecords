@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.myrecords.MainActivity"
-    android:background="#000000">
+    android:background="@color/colorPrimary"
+    tools:context="com.epicodus.myrecords.MainActivity" >
 
     <ImageView
         android:layout_width="wrap_content"
@@ -21,7 +21,6 @@
         android:id="@+id/myRecordsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:text="MyRecords"
         android:textSize="45sp"
         android:textColor="@color/colorTextIcons"
@@ -33,7 +32,6 @@
         android:id="@+id/editUsername"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:padding="5dp"
         android:hint="Enter User Name"
         android:gravity="center"
         android:textColorHint="@color/colorPrimaryText"
@@ -48,7 +46,6 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:padding="5dp"
         android:text="Log In"
         android:background="@color/colorPrimaryLight"
         android:layout_centerHorizontal="true"
@@ -58,9 +55,8 @@
         android:id="@+id/signupButton"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:padding="5dp"
         android:text="Sign Up"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         android:textColor="@color/colorTextIcons"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/loginButton"

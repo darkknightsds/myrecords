@@ -20,9 +20,6 @@ public class MyCollection extends AppCompatActivity {
     @Bind(R.id.usernameWelcome) TextView mUsernameWelcome;
     @Bind(R.id.userAlbums) ListView mUserAlbums;
 
-//    private List<Album> albums = new ArrayList<>();
-//    Album lovesexy = new Album("Prince", "Lovesexy", 1988, "Compact Disc");
-//    Album aoa = new Album("Prince", "Art Official Age", 2014, "Vinyl");
 
     private String[] artists = new String[] {"Prince", "John Coltrane", "Miles Davis", "Sade"};
 
@@ -32,8 +29,6 @@ public class MyCollection extends AppCompatActivity {
         setContentView(R.layout.activity_my_collection);
         ButterKnife.bind(this);
 
-//        albums.add(lovesexy);
-//        albums.add(aoa);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, artists);
         mUserAlbums.setAdapter(adapter);
@@ -50,17 +45,4 @@ public class MyCollection extends AppCompatActivity {
         mUsernameWelcome.setText("Welcome back, " + username + "!");
     }
 
-//    private class Album {
-//        private String mArtist;
-//        private String mName;
-//        private int mYear;
-//        private String mFormat;
-//
-//        private Album(String artist, String name, int year, String format) {
-//            mArtist = artist;
-//            mName = name;
-//            mYear = year;
-//            mFormat = format;
-//        }
-//    }
 }

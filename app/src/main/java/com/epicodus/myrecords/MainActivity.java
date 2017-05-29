@@ -38,9 +38,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == mLogInButton) {
             String username = mEditUsername.getText().toString();
-            Intent intent = new Intent(MainActivity.this, MyCollection.class);
-            intent.putExtra("username", username);
-            startActivity(intent);
+            if (mEditUsername.getText().toString().equals("")) {
+                mEditUsername.setHint("Must enter username to continue");
+            } else {
+                Intent intent = new Intent(MainActivity.this, MyCollection.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
+            }
         } else if (v == mSignUpButton) {
             Toast.makeText(MainActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
         }
