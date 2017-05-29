@@ -3,7 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.myrecords.MainActivity">
+    tools:context="com.epicodus.myrecords.MainActivity"
+    android:background="#000000">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/recordsBackground"
+        android:src="@drawable/records"
+        android:scaleType="centerCrop"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/myRecordsHeader"
@@ -11,38 +23,41 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:text="MyRecords"
-        android:layout_centerHorizontal="true"
+        android:textSize="55sp"
+        android:textColor="@color/colorTextIcons"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="55dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/editUsername"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:hint="Enter User Name"
-        android:layout_marginBottom="25dp"
+        android:textColor="@color/colorTextIcons"
         android:layout_above="@+id/loginButton"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:padding="5dp"
         android:text="Log In"
+        android:background="@color/colorPrimaryLight"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
         android:layout_above="@+id/signupButton" />
 
     <Button
         android:id="@+id/signupButton"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:padding="5dp"
         android:text="Sign Up"
-        android:layout_marginBottom="65dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorTextIcons"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/loginButton"
+        android:layout_alignStart="@+id/loginButton" />
 
 </RelativeLayout>
