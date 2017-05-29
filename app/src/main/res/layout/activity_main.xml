@@ -23,25 +23,31 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:text="MyRecords"
-        android:textSize="55sp"
+        android:textSize="45sp"
         android:textColor="@color/colorTextIcons"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/editUsername"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:padding="5dp"
         android:hint="Enter User Name"
-        android:textColor="@color/colorTextIcons"
+        android:gravity="center"
+        android:textColorHint="@color/colorPrimaryText"
+        android:textColor="@color/colorSecondaryText"
+        android:textCursorDrawable="@color/colorSecondaryText"
+        android:backgroundTint="@color/colorAccent"
+        android:background="@color/colorPrimaryLight"
         android:layout_above="@+id/loginButton"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:padding="5dp"
         android:text="Log In"
         android:background="@color/colorPrimaryLight"
@@ -51,7 +57,7 @@
     <Button
         android:id="@+id/signupButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:padding="5dp"
         android:text="Sign Up"
         android:background="@color/colorPrimaryDark"

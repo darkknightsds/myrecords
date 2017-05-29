@@ -1,11 +1,13 @@
 package com.epicodus.myrecords;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.Bind;
@@ -16,12 +18,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.loginButton) Button mLogInButton;
     @Bind(R.id.signupButton) Button mSignUpButton;
     @Bind(R.id.editUsername) EditText mEditUsername;
+    @Bind(R.id.myRecordsHeader) TextView mMyRecordsHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Typeface headerFont = Typeface.createFromAsset(getAssets(), "fonts/header.ttf");
+        mMyRecordsHeader.setTypeface(headerFont);
 
         mLogInButton.setOnClickListener(this);
         mSignUpButton.setOnClickListener(this);
