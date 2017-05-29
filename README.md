@@ -25,7 +25,7 @@ You will need the following things properly installed on your computer.
 ### Running / Development
 * Open Android Studio
 * Select cloned folder from list
-* Press green arrow ("Run) to view app
+* Press green arrow ("Run") to view app
 
 ### License
 
