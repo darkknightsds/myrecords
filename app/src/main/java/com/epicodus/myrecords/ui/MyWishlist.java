@@ -90,6 +90,7 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
                             Log.d(TAG, "Year: " + album.getYear());
                             Log.d(TAG, "Format: " + album.getFormat().toString());
                             Log.d(TAG, "Country of Origin: " + album.getCountry());
+                            Log.d(TAG, "Image Thumbnail: " + album.getThumb());
                         }
                     }
                 });
