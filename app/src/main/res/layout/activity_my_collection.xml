@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context="com.epicodus.myrecords.MyCollection">
 
-
     <TextView
         android:id="@+id/usernameWelcome"
         android:layout_width="wrap_content"

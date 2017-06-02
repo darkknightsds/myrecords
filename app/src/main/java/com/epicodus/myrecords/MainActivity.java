@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (mEditUsername.getText().toString().equals("")) {
                 mEditUsername.setHint("Must enter username to continue");
             } else {
-                Intent intent = new Intent(MainActivity.this, MyCollection.class);
+                Intent intent = new Intent(MainActivity.this, MyWishlist.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
             }
