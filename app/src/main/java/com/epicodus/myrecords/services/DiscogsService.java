@@ -1,6 +1,10 @@
-package com.epicodus.myrecords;
+package com.epicodus.myrecords.services;
 
 import android.util.Log;
+
+import com.epicodus.myrecords.Constants;
+import com.epicodus.myrecords.ui.MyWishlist;
+import com.epicodus.myrecords.models.WishlistAlbum;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,7 +56,8 @@ public class DiscogsService {
                         format.add(formatJSON.get(0).toString());
                     }
                     String convertedFormat = format.get(0);
-                    WishlistAlbum album = new WishlistAlbum(title, year, convertedFormat);
+                    String country = albumJSON.getString("country");
+                    WishlistAlbum album = new WishlistAlbum(title, year, convertedFormat, country);
                     albums.add(album);
                 }
             }

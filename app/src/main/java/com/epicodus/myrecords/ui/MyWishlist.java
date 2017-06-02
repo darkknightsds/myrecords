@@ -1,4 +1,4 @@
-package com.epicodus.myrecords;
+package com.epicodus.myrecords.ui;
 
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.epicodus.myrecords.R;
+import com.epicodus.myrecords.models.WishlistAlbum;
+import com.epicodus.myrecords.services.DiscogsService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -85,6 +89,7 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
                             Log.d(TAG, "Artist and Title: " + album.getTitle());
                             Log.d(TAG, "Year: " + album.getYear());
                             Log.d(TAG, "Format: " + album.getFormat().toString());
+                            Log.d(TAG, "Country of Origin: " + album.getCountry());
                         }
                     }
                 });

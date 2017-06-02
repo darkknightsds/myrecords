@@ -1,4 +1,4 @@
-package com.epicodus.myrecords;
+package com.epicodus.myrecords.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.epicodus.myrecords.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
