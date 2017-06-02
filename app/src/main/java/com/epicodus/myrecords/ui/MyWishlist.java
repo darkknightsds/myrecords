@@ -3,6 +3,8 @@ package com.epicodus.myrecords.ui;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.epicodus.myrecords.R;
+import com.epicodus.myrecords.adapters.WishlistAdapter;
 import com.epicodus.myrecords.models.WishlistAlbum;
 import com.epicodus.myrecords.services.DiscogsService;
 
@@ -33,8 +36,9 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
     @Bind(R.id.editTitle) EditText mEditTitle;
     @Bind(R.id.editYear) EditText mEditYear;
     @Bind(R.id.editFormat) EditText mEditFormat;
-    @Bind(R.id.wishlistAlbums) ListView mWishlistAlbums;
+    @Bind(R.id.apiRecycler) RecyclerView mApiRecycler;
 
+    private WishlistAdapter mAdapter;
     public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
 
     @Override
@@ -78,20 +82,11 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
                 MyWishlist.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] albumTitles = new String[mAlbums.size()];
-                        for (int i = 0; i < albumTitles.length; i ++) {
-                            albumTitles[i] = mAlbums.get(i).getTitle();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(MyWishlist.this, android.R.layout.simple_list_item_1, albumTitles);
-                        mWishlistAlbums.setAdapter(adapter);
-
-                        for (WishlistAlbum album : mAlbums) {
-                            Log.d(TAG, "Artist and Title: " + album.getTitle());
-                            Log.d(TAG, "Year: " + album.getYear());
-                            Log.d(TAG, "Format: " + album.getFormat().toString());
-                            Log.d(TAG, "Country of Origin: " + album.getCountry());
-                            Log.d(TAG, "Image Thumbnail: " + album.getThumb());
-                        }
+                        mAdapter = new WishlistAdapter(getApplicationContext(), mAlbums);
+                        mApiRecycler.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MyWishlist.this);
+                        mApiRecycler.setLayoutManager(layoutManager);
+                        mApiRecycler.setHasFixedSize(true);
                     }
                 });
             }
