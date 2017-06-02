@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class WishlistAlbum {
     private String mTitle;
     private String mYear;
-    private ArrayList<String> mFormat = new ArrayList<>();
+    private String mFormat;
 
-    public WishlistAlbum(String title, String year, ArrayList<String> format) {
+    public WishlistAlbum(String title, String year, String format) {
         this.mTitle = title;
         this.mYear = year;
         this.mFormat = format;
@@ -22,7 +22,7 @@ public class WishlistAlbum {
         return mYear;
     }
 
-    public ArrayList<String> getFormat() {
+    public String getFormat() {
         return mFormat;
     }
 }
