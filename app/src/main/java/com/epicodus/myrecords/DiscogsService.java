@@ -49,7 +49,7 @@ public class DiscogsService {
                     ArrayList<String> format = new ArrayList<>();
                     JSONArray formatJSON = albumJSON.getJSONArray("format");
                     for (int y = 0; y < formatJSON.length(); y++) {
-                        format.add(formatJSON.getJSONArray(y).get(0).toString());
+                        format.add(formatJSON.get(0).toString());
                     }
                     WishlistAlbum album = new WishlistAlbum(title, year, format);
                     albums.add(album);

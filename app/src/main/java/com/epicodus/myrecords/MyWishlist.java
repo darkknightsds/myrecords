@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -27,6 +29,7 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
     @Bind(R.id.editTitle) EditText mEditTitle;
     @Bind(R.id.editYear) EditText mEditYear;
     @Bind(R.id.editFormat) EditText mEditFormat;
+    @Bind(R.id.wishlistAlbums) ListView mWishlistAlbums;
 
     public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
 
@@ -65,15 +68,26 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                    mAlbums = discogsService.processResults(response);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            public void onResponse(Call call, Response response) {
+                mAlbums = discogsService.processResults(response);
 
+                MyWishlist.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] albumTitles = new String[mAlbums.size()];
+                        for (int i = 0; i < albumTitles.length; i ++) {
+                            albumTitles[i] = mAlbums.get(i).getTitle();
+                        }
+                        ArrayAdapter adapter = new ArrayAdapter(MyWishlist.this, android.R.layout.simple_list_item_1, albumTitles);
+                        mWishlistAlbums.setAdapter(adapter);
+
+                        for (WishlistAlbum album : mAlbums) {
+                            Log.d(TAG, "Artist and Title: " + album.getTitle());
+                            Log.d(TAG, "Year: " + album.getYear());
+                            Log.d(TAG, "Format: " + album.getFormat().toString());
+                        }
+                    }
+                });
             }
         });
     }
