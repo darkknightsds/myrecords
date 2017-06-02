@@ -2,10 +2,18 @@ package com.epicodus.myrecords;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 public class DiscogsService {
     public static final String TAG = MyWishlist.class.getSimpleName();
@@ -24,6 +32,35 @@ public class DiscogsService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+    }
+
+    public ArrayList<WishlistAlbum> processResults(Response response) {
+        ArrayList<WishlistAlbum> albums = new ArrayList<>();
+
+        try {
+            String jsonData = response.body().string();
+            if (response.isSuccessful()) {
+                JSONObject discogsJSON = new JSONObject(jsonData);
+                JSONArray resultsJSON = discogsJSON.getJSONArray("results");
+                for (int i = 0; i < resultsJSON.length(); i++) {
+                    JSONObject albumJSON = resultsJSON.getJSONObject(i);
+                    String title = albumJSON.getString("title");
+                    String year = albumJSON.getString("year");
+                    ArrayList<String> format = new ArrayList<>();
+                    JSONArray formatJSON = albumJSON.getJSONArray("format");
+                    for (int y = 0; y < formatJSON.length(); y++) {
+                        format.add(formatJSON.getJSONArray(y).get(0).toString());
+                    }
+                    WishlistAlbum album = new WishlistAlbum(title, year, format);
+                    albums.add(album);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return albums;
     }
 
 }

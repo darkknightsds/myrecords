@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,6 +27,8 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
     @Bind(R.id.editTitle) EditText mEditTitle;
     @Bind(R.id.editYear) EditText mEditYear;
     @Bind(R.id.editFormat) EditText mEditFormat;
+
+    public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,7 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
                 try {
                     String jsonData = response.body().string();
                     Log.v(TAG, jsonData);
+                    mAlbums = discogsService.processResults(response);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
