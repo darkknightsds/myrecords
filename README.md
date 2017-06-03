@@ -24,11 +24,13 @@ You will need the following things properly installed on your computer.
 
 ### Running / Development
 * Open Android Studio
+* Choose "Open existing project"
 * Select cloned folder from list
+* Sync Gradle
 * Press green arrow ("Run") to view app
 
-### License
+## License
 
-  Copyright (c) 2017 **_Shane Stafford_**
+Copyright (c) 2017 **_Shane Stafford_**
 
-  This software is licensed under the MIT license.
+his software is licensed under the MIT license.
