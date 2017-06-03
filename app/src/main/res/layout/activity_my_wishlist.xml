@@ -44,20 +44,6 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editYear"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="Enter Album Year"
-        android:gravity="center"
-        android:textColorHint="@color/colorPrimaryText"
-        android:textColor="@color/colorSecondaryText"
-        android:textCursorDrawable="@color/colorSecondaryText"
-        android:backgroundTint="@color/colorAccent"
-        android:background="@color/colorPrimaryLight"
-        android:layout_below="@+id/editTitle"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
         android:id="@+id/editFormat"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -68,7 +54,7 @@
         android:textCursorDrawable="@color/colorSecondaryText"
         android:backgroundTint="@color/colorAccent"
         android:background="@color/colorPrimaryLight"
-        android:layout_below="@+id/editYear"
+        android:layout_below="@+id/editTitle"
         android:layout_centerHorizontal="true" />
 
     <Button

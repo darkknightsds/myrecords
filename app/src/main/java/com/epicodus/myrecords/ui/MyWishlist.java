@@ -32,7 +32,6 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
     @Bind(R.id.myWishlistHeader) TextView mMyWishlistHeader;
     @Bind(R.id.editArtist) EditText mEditArtist;
     @Bind(R.id.editTitle) EditText mEditTitle;
-    @Bind(R.id.editYear) EditText mEditYear;
     @Bind(R.id.editFormat) EditText mEditFormat;
     @Bind(R.id.apiRecycler) RecyclerView mApiRecycler;
 
@@ -56,18 +55,23 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
         if (v == mApiButton) {
             String artist = mEditArtist.getText().toString();
             String release_title = mEditTitle.getText().toString();
-            String year = mEditYear.getText().toString();
             String format = mEditFormat.getText().toString();
             if (mEditArtist.getText().toString().equals("")) {
                 mEditArtist.setHint("Must enter artist to continue");
             }
-            getAlbums(artist, release_title, year, format);
+            if (mEditTitle.getText().toString().equals("")) {
+                mEditTitle.setHint("Must enter title to continue");
+            }
+            if (mEditFormat.getText().toString().equals("")) {
+                mEditFormat.setHint("Must enter format to continue");
+            }
+            getAlbums(artist, release_title, format);
         }
     }
 
-    private void getAlbums(String artist, String release_title, String year, String format) {
+    private void getAlbums(String artist, String release_title, String format) {
         final DiscogsService discogsService = new DiscogsService();
-        discogsService.findRecords(artist, release_title, year, format, new Callback() {
+        discogsService.findRecords(artist, release_title, format, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
