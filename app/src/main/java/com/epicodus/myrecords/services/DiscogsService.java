@@ -58,7 +58,8 @@ public class DiscogsService {
                     String convertedFormat = format.get(0);
                     String country = albumJSON.getString("country");
                     String thumb = albumJSON.getString("thumb");
-                    WishlistAlbum album = new WishlistAlbum(title, year, convertedFormat, country, thumb);
+                    String url = albumJSON.getString("url");
+                    WishlistAlbum album = new WishlistAlbum(title, year, convertedFormat, country, thumb, url);
                     albums.add(album);
                 }
             }

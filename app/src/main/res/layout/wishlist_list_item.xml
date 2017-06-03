@@ -24,14 +24,14 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Prince - Lovesexy"
+            android:text="Album Artist - Album Title"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/wishlistListFormat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cassette"
+            android:text="Album Format"
             android:layout_below="@+id/wishlistListTitle"
             android:layout_alignParentLeft="true"
             android:textColor="@color/colorPrimaryDark"
@@ -41,7 +41,7 @@
             android:id="@+id/wishlistListCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mexico"
+            android:text="Country of Origin"
             android:layout_below="@+id/wishlistListFormat"
             android:layout_alignParentLeft="true"
             android:textColor="@color/colorPrimaryLight" />

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.myrecords">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity"
+        <activity
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,10 +23,10 @@
         <activity android:name=".ui.MyCollection">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.myrecords.ui.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.myrecords.ui.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".ui.MyWishlist"></activity>
+        <activity android:name=".ui.MyWishlist" />
+        <activity android:name=".ui.WishlistAlbumDetail"></activity>
     </application>
 
 </manifest>
