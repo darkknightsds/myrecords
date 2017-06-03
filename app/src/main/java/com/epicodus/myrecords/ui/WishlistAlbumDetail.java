@@ -1,15 +1,37 @@
 package com.epicodus.myrecords.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import com.epicodus.myrecords.R;
+import com.epicodus.myrecords.adapters.WishlistPagerAdapter;
+import com.epicodus.myrecords.models.WishlistAlbum;
+
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class WishlistAlbumDetail extends AppCompatActivity {
+    @Bind(R.id.wishlistPager) ViewPager mViewPager;
+    private WishlistPagerAdapter adapterViewPager;
+    ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wishlist_album_detail);
+        ButterKnife.bind(this);
+
+        mAlbums = Parcels.unwrap(getIntent().getParcelableExtra("albums"));
+        int startingPosition = getIntent().getIntExtra("position", 0);
+
+        adapterViewPager = new WishlistPagerAdapter(getSupportFragmentManager(), mAlbums);
+        mViewPager.setAdapter(adapterViewPager);
+        mViewPager.setCurrentItem(startingPosition);
     }
 }

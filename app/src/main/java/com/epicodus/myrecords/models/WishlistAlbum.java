@@ -1,12 +1,18 @@
 package com.epicodus.myrecords.models;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class WishlistAlbum {
-    private String mTitle;
-    private String mYear;
-    private String mFormat;
-    private String mCountry;
-    private String mThumb;
-    private String mUrl;
+    String mTitle;
+    String mYear;
+    String mFormat;
+    String mCountry;
+    String mThumb;
+    String mUrl;
+
+    public WishlistAlbum() {
+    }
 
     public WishlistAlbum(String title, String year, String format, String country, String thumb, String url) {
         this.mTitle = title;

@@ -28,8 +28,6 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class MyWishlist extends AppCompatActivity implements View.OnClickListener {
-    public static final String TAG = MyWishlist.class.getSimpleName();
-
     @Bind(R.id.apiButton) Button mApiButton;
     @Bind(R.id.myWishlistHeader) TextView mMyWishlistHeader;
     @Bind(R.id.editArtist) EditText mEditArtist;

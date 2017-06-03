@@ -80,13 +80,6 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/editFormat" />
 
-    <!--<ListView-->
-        <!--android:id="@+id/wishlistAlbums"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/apiButton"-->
-        <!--android:layout_centerHorizontal="true" />-->
-
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
