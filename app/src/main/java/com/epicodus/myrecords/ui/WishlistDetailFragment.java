@@ -1,5 +1,7 @@
 package com.epicodus.myrecords.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,7 +20,7 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class WishlistDetailFragment extends Fragment {
+public class WishlistDetailFragment extends Fragment implements View.OnClickListener {
     @Bind(R.id.wishlistThumb) ImageView mWishlistThumb;
     @Bind(R.id.wishlistTitle) TextView mWishlistTitle;
     @Bind(R.id.wishlistYear) TextView mWishlistYear;
@@ -55,7 +57,16 @@ public class WishlistDetailFragment extends Fragment {
         mWishlistFormat.setText(mWishlistAlbum.getFormat());
         mWishlistCountry.setText(mWishlistAlbum.getCountry());
         mWishlistUrl.setText(mWishlistAlbum.getUrl());
+        mWishlistUrl.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick (View v) {
+        if (v == mWishlistUrl) {
+            Intent discogsIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mWishlistAlbum.getUrl()));
+            startActivity(discogsIntent);
+        }
     }
 }
