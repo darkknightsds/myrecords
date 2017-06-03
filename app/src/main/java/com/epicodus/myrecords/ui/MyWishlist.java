@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.adapters.WishlistAdapter;
@@ -56,16 +57,9 @@ public class MyWishlist extends AppCompatActivity implements View.OnClickListene
             String artist = mEditArtist.getText().toString();
             String release_title = mEditTitle.getText().toString();
             String format = mEditFormat.getText().toString();
-            if (mEditArtist.getText().toString().equals("")) {
-                mEditArtist.setHint("Must enter artist to continue");
-            }
-            if (mEditTitle.getText().toString().equals("")) {
-                mEditTitle.setHint("Must enter title to continue");
-            }
-            if (mEditFormat.getText().toString().equals("")) {
-                mEditFormat.setHint("Must enter format to continue");
-            }
-            getAlbums(artist, release_title, format);
+            if (mEditArtist.getText().toString().equals("") || mEditTitle.getText().toString().equals("") || mEditFormat.getText().toString().equals("")) {
+                Toast.makeText(MyWishlist.this, "Complete all fields to continue", Toast.LENGTH_LONG).show();
+            } else getAlbums(artist, release_title, format);
         }
     }
 

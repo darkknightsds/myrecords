@@ -25,8 +25,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.myrecords.ui.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".ui.MyWishlist" />
-        <activity android:name=".ui.WishlistAlbumDetail"></activity>
+        <activity android:name=".ui.MyWishlist">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.epicodus.myrecords.ui.MainActivity"></meta-data>
+        </activity>
+        <activity android:name=".ui.WishlistAlbumDetail" />
     </application>
 
 </manifest>
