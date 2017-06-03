@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.models.WishlistAlbum;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -58,6 +59,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
         }
 
         public void bindWishlist(WishlistAlbum album) {
+            Picasso.with(mContext).load(album.getThumb()).into(mWishlistListThumb);
             mWishlistListTitle.setText(album.getTitle());
             mWishlistListFormat.setText(album.getFormat());
             mWishlistListCountry.setText(album.getCountry());
