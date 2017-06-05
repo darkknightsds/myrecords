@@ -6,23 +6,13 @@
     tools:context="com.epicodus.myrecords.ui.MyCollection">
 
     <TextView
-        android:id="@+id/usernameWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="Welcome!"
-        android:textColor="@color/colorPrimaryText"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
         android:id="@+id/myCollectionHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MyCollection"
         android:textSize="30sp"
         android:textColor="@color/colorPrimaryText"
-        android:layout_below="@+id/usernameWelcome"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <ListView

@@ -17,7 +17,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MyCollection extends AppCompatActivity {
-    @Bind(R.id.usernameWelcome) TextView mUsernameWelcome;
     @Bind(R.id.myCollectionHeader) TextView mMyCollectionHeader;
     @Bind(R.id.userAlbums) ListView mUserAlbums;
 
@@ -41,10 +40,7 @@ public class MyCollection extends AppCompatActivity {
                 Toast.makeText(MyCollection.this, "Individual artist pages coming soon", Toast.LENGTH_SHORT).show();
             }
         });
-
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        mUsernameWelcome.setText("Welcome back, " + username + "!");
+        
     }
 
 }
