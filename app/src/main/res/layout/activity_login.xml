@@ -9,10 +9,6 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
         android:foreground="#40000000"
         android:scaleType="centerCrop"
         android:visibility="visible"
@@ -28,55 +24,62 @@
     <EditText
         android:id="@+id/enterEmail"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorTextIcons"
-        android:textColorHint="@color/colorTextIcons"
-        android:textColor="@color/colorTextIcons"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textColor="@color/colorTextIcons"
+        android:textColorHint="@color/colorTextIcons"
+        app:layout_constraintBottom_toTopOf="@+id/enterPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/enterPassword"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/enterPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/colorTextIcons"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:backgroundTint="@color/colorTextIcons"
-        android:textColorHint="@color/colorTextIcons"
         android:textColor="@color/colorTextIcons"
+        android:textColorHint="@color/colorTextIcons"
+        app:layout_constraintBottom_toTopOf="@+id/createAccountButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/enterEmail"
         app:layout_constraintRight_toRightOf="@+id/enterEmail"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/createAccountButton" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/createAccountButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:background="@color/colorAccent"
         android:text="Sign In"
-        android:textStyle="bold"
         android:textColor="@color/colorTextIcons"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/createAccount"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/enterPassword"
-        app:layout_constraintRight_toRightOf="@+id/enterPassword" />
+        app:layout_constraintRight_toRightOf="@+id/enterPassword"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/createAccount"
@@ -90,15 +93,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/createAccountButton"
-        app:layout_constraintRight_toRightOf="@+id/createAccountButton" />
+        app:layout_constraintRight_toRightOf="@+id/createAccountButton"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/loginHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
         android:text="MyRecords"
         android:textAlignment="textEnd"
@@ -110,6 +116,8 @@
         app:layout_constraintRight_toRightOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="1.0" />
+        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 </android.support.constraint.ConstraintLayout>
 
