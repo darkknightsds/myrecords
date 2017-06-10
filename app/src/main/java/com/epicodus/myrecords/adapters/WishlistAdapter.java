@@ -18,7 +18,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -49,10 +49,10 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     }
 
     public class WishlistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @Bind(R.id.wishlistListThumb) ImageView mWishlistListThumb;
-        @Bind(R.id.wishlistListTitle) TextView mWishlistListTitle;
-        @Bind(R.id.wishlistListFormat) TextView mWishlistListFormat;
-        @Bind(R.id.wishlistListCountry) TextView mWishlistListCountry;
+        @BindView(R.id.wishlistListThumb) ImageView mWishlistListThumb;
+        @BindView(R.id.wishlistListTitle) TextView mWishlistListTitle;
+        @BindView(R.id.wishlistListFormat) TextView mWishlistListFormat;
+        @BindView(R.id.wishlistListCountry) TextView mWishlistListCountry;
 
         private Context mContext;
 

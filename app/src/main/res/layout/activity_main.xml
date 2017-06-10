@@ -1,65 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context="com.epicodus.myrecords.ui.MainActivity" >
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <ImageView
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/recordsBackground"
-        android:src="@drawable/records"
-        android:scaleType="centerCrop"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 
-    <TextView
-        android:id="@+id/myRecordsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MyRecords"
-        android:textSize="45sp"
-        android:textColor="@color/colorTextIcons"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:id="@+id/editUsername"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="Enter User Name"
-        android:gravity="center"
-        android:textColorHint="@color/colorPrimaryText"
-        android:textColor="@color/colorSecondaryText"
-        android:textCursorDrawable="@color/colorSecondaryText"
-        android:backgroundTint="@color/colorAccent"
-        android:background="@color/colorPrimaryLight"
-        android:layout_above="@+id/loginButton"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="Log In"
-        android:background="@color/colorPrimaryLight"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/signupButton" />
-
-    <Button
-        android:id="@+id/signupButton"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="Sign Up"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorTextIcons"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/loginButton"
-        android:layout_alignStart="@+id/loginButton" />
-
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

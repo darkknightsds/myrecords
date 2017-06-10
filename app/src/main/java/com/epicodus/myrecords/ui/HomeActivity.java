@@ -10,13 +10,13 @@ import android.widget.TextView;
 
 import com.epicodus.myrecords.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.myCollectionNav) Button mMyCollectionNav;
-    @Bind(R.id.myWishlistNav) Button mMyWishlistNav;
-    @Bind(R.id.usernameWelcome) TextView mUsernameWelcome;
+    @BindView(R.id.myCollectionNav) Button mMyCollectionNav;
+    @BindView(R.id.myWishlistNav) Button mMyWishlistNav;
+    @BindView(R.id.usernameWelcome) TextView mUsernameWelcome;
 
 
     @Override

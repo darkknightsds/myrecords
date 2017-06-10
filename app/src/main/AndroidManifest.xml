@@ -12,11 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
-            android:theme="@style/NoActionBar">
+            android:name=".ui.LoginActivity"
+            android:windowSoftInputMode="stateVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,7 +30,14 @@
                 android:value="com.epicodus.myrecords.ui.HomeActivity" />
         </activity>
         <activity android:name=".ui.WishlistAlbumDetail" />
-        <activity android:name=".ui.HomeActivity"></activity>
+        <activity android:name=".ui.HomeActivity" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="MyRecords"
+            android:windowSoftInputMode="stateVisible"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.CreateAccountActivity"
+            android:windowSoftInputMode="stateVisible"></activity>
     </application>
 
 </manifest>

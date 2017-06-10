@@ -17,17 +17,17 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WishlistDetailFragment extends Fragment implements View.OnClickListener {
-    @Bind(R.id.wishlistThumb) ImageView mWishlistThumb;
-    @Bind(R.id.wishlistTitle) TextView mWishlistTitle;
-    @Bind(R.id.wishlistYear) TextView mWishlistYear;
-    @Bind(R.id.wishlistFormat) TextView mWishlistFormat;
-    @Bind(R.id.wishlistCountry) TextView mWishlistCountry;
-    @Bind(R.id.wishlistUrl) TextView mWishlistUrl;
-    @Bind(R.id.saveWishlistButton) Button mWishlistButton;
+    @BindView(R.id.wishlistThumb) ImageView mWishlistThumb;
+    @BindView(R.id.wishlistTitle) TextView mWishlistTitle;
+    @BindView(R.id.wishlistYear) TextView mWishlistYear;
+    @BindView(R.id.wishlistFormat) TextView mWishlistFormat;
+    @BindView(R.id.wishlistCountry) TextView mWishlistCountry;
+    @BindView(R.id.wishlistUrl) TextView mWishlistUrl;
+    @BindView(R.id.saveWishlistButton) Button mWishlistButton;
 
     private WishlistAlbum mWishlistAlbum;
 

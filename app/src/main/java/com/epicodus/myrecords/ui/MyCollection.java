@@ -13,12 +13,12 @@ import android.widget.Toast;
 
 import com.epicodus.myrecords.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyCollection extends AppCompatActivity {
-    @Bind(R.id.myCollectionHeader) TextView mMyCollectionHeader;
-    @Bind(R.id.userAlbums) ListView mUserAlbums;
+    @BindView(R.id.myCollectionHeader) TextView mMyCollectionHeader;
+    @BindView(R.id.userAlbums) ListView mUserAlbums;
 
     private String[] artists = new String[] {"Prince", "John Coltrane", "Miles Davis", "Sade"};
 

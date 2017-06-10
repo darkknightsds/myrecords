@@ -22,19 +22,19 @@ import com.epicodus.myrecords.services.DiscogsService;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
 public class MyWishlist extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.apiButton) Button mApiButton;
-    @Bind(R.id.myWishlistHeader) TextView mMyWishlistHeader;
-    @Bind(R.id.editArtist) EditText mEditArtist;
-    @Bind(R.id.editTitle) EditText mEditTitle;
-    @Bind(R.id.editFormat) EditText mEditFormat;
-    @Bind(R.id.apiRecycler) RecyclerView mApiRecycler;
+    @BindView(R.id.apiButton) Button mApiButton;
+    @BindView(R.id.myWishlistHeader) TextView mMyWishlistHeader;
+    @BindView(R.id.editArtist) EditText mEditArtist;
+    @BindView(R.id.editTitle) EditText mEditTitle;
+    @BindView(R.id.editFormat) EditText mEditFormat;
+    @BindView(R.id.apiRecycler) RecyclerView mApiRecycler;
 
     private WishlistAdapter mAdapter;
     public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();

@@ -12,12 +12,12 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class WishlistAlbumDetail extends AppCompatActivity {
-    @Bind(R.id.wishlistPager) ViewPager mViewPager;
+    @BindView(R.id.wishlistPager) ViewPager mViewPager;
     private WishlistPagerAdapter adapterViewPager;
     ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
 

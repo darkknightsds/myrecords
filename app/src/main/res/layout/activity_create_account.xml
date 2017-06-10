@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.myrecords.ui.CreateAccountActivity">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:foreground="#40000000"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/records" />
+
+    <EditText
+        android:id="@+id/enterUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:backgroundTint="@color/colorTextIcons"
+        android:textColorHint="@color/colorTextIcons"
+        android:textColor="@color/colorTextIcons"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/enterEmail" />
+
+    <EditText
+        android:id="@+id/enterEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:backgroundTint="@color/colorTextIcons"
+        android:textColorHint="@color/colorTextIcons"
+        android:textColor="@color/colorTextIcons"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/enterUserName"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="@+id/enterUserName"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/enterPassword" />
+
+    <EditText
+        android:id="@+id/enterPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:backgroundTint="@color/colorTextIcons"
+        android:textColorHint="@color/colorTextIcons"
+        android:textColor="@color/colorTextIcons"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/enterEmail"
+        app:layout_constraintRight_toRightOf="@+id/enterEmail"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirmPassword" />
+
+    <Button
+        android:id="@+id/createAccountButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@color/colorAccent"
+        android:text="Join"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/loginTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/confirmPassword"
+        app:layout_constraintRight_toRightOf="@+id/confirmPassword" />
+
+    <TextView
+        android:id="@+id/loginTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="@color/colorTextIcons"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/createAccountButton"
+        app:layout_constraintRight_toRightOf="@+id/createAccountButton" />
+
+    <TextView
+        android:id="@+id/createAccountHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Join MyRecords"
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:ems="10"
+        android:hint="Confirm password"
+        android:inputType="textPassword"
+        android:backgroundTint="@color/colorTextIcons"
+        android:textColorHint="@color/colorTextIcons"
+        android:textColor="@color/colorTextIcons"
+        app:layout_constraintLeft_toLeftOf="@+id/enterPassword"
+        app:layout_constraintRight_toRightOf="@+id/enterPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/createAccountButton" />
+
+</android.support.constraint.ConstraintLayout>
