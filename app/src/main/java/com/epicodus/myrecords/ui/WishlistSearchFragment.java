@@ -4,8 +4,10 @@ package com.epicodus.myrecords.ui;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +18,14 @@ import android.widget.Toast;
 
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.adapters.WishlistAdapter;
+import com.epicodus.myrecords.models.AlbumSearch;
+import com.epicodus.myrecords.models.WishlistAlbum;
 import com.epicodus.myrecords.services.DiscogsService;
 
+import org.parceler.Parcels;
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,12 +40,16 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
     @BindView(R.id.searchAlbum) EditText mSearchAlbum;
     @BindView(R.id.searchFormat) EditText mSearchFormat;
     @BindView(R.id.searchButton) Button mSearchButton;
-    private Unbinder unbinder;
+//    @BindView(R.id.apiRecycler) RecyclerView mApiRecycler;
 
+    private Unbinder unbinder;
+//    private WishlistAdapter mAdapter;
+//    public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
+    private AlbumSearch mAlbumSearch;
+    private WishlistListFragment mWishlistListFragment;
 
     public WishlistSearchFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,13 +81,18 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
             if (mSearchArtist.getText().toString().equals("") || mSearchAlbum.getText().toString().equals("") || mSearchFormat.getText().toString().equals("")) {
                 Toast.makeText(getActivity(), "Please Complete All Fields", Toast.LENGTH_LONG).show();
             } else {
-                getAlbums(artist, release_title, format);
+                mWishlistListFragment = new WishlistListFragment();
+                mAlbumSearch = new AlbumSearch(artist, release_title, format);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("albumSearch", Parcels.wrap(mAlbumSearch));
+                mWishlistListFragment.setArguments(bundle);
+                ((MainActivity)getActivity()).loadFragment(mWishlistListFragment.newInstance(mAlbumSearch));
             }
         }
     }
 
-    private void getAlbums(String artist, String release_title, String format) {
-        final DiscogsService discogsService = new DiscogsService();
+//    private void getAlbums(String artist, String release_title, String format) {
+//        final DiscogsService discogsService = new DiscogsService();
 //        discogsService.findRecords(artist, release_title, format, new Callback() {
 //            @Override
 //            public void onFailure(Call call, IOException e) {
@@ -87,19 +103,20 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
 //            public void onResponse(Call call, Response response) {
 //                mAlbums = discogsService.processResults(response);
 //
-//                MyWishlist.this.runOnUiThread(new Runnable() {
+//                getActivity().runOnUiThread(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                        mAdapter = new WishlistAdapter(getApplicationContext(), mAlbums);
+//                        Log.d("was this successful","yes");
+//                        mAdapter = new WishlistAdapter(getActivity().getApplicationContext(), mAlbums);
 //                        mApiRecycler.setAdapter(mAdapter);
-//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MyWishlist.this);
+//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
 //                        mApiRecycler.setLayoutManager(layoutManager);
 //                        mApiRecycler.setHasFixedSize(true);
 //                    }
 //                });
 //            }
 //        });
-    }
+//    }
 
 }
 
