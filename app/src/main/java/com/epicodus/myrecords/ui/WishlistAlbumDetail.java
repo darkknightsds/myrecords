@@ -29,8 +29,7 @@ public class WishlistAlbumDetail extends AppCompatActivity {
 
         mAlbums = Parcels.unwrap(getIntent().getParcelableExtra("albums"));
         int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
-
-
+        
         adapterViewPager = new WishlistPagerAdapter(getSupportFragmentManager(), mAlbums);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
