@@ -106,6 +106,17 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Add To MyCollection"
+                android:id="@+id/saveCollectionButton"
+                android:layout_above="@+id/saveWishlistButton"
+                android:background="@color/colorPrimaryLight"
+                android:textColor="@color/colorTextIcons"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Save To MyWishlist"
                 android:id="@+id/saveWishlistButton"
                 android:layout_alignParentBottom="true"

@@ -4,46 +4,46 @@ import org.parceler.Parcel;
 
 @Parcel
 public class WishlistAlbum {
-    String mTitle;
-    String mYear;
-    String mFormat;
-    String mCountry;
-    String mThumb;
-    String mUrl;
+    String title;
+    String year;
+    String format;
+    String country;
+    String thumb;
+    String url;
 
     public WishlistAlbum() {
     }
 
     public WishlistAlbum(String title, String year, String format, String country, String thumb, String url) {
-        this.mTitle = title;
-        this.mYear = year;
-        this.mFormat = format;
-        this.mCountry = country;
-        this.mThumb = thumb;
-        this.mUrl = url;
+        this.title = title;
+        this.year = year;
+        this.format = format;
+        this.country = country;
+        this.thumb = thumb;
+        this.url = url;
     }
 
     public String getTitle() {
-        return mTitle;
+        return title;
     }
 
     public String getYear() {
-        return mYear;
+        return year;
     }
 
     public String getFormat() {
-        return mFormat;
+        return format;
     }
 
     public String getCountry() {
-        return mCountry;
+        return country;
     }
 
     public String getThumb() {
-        return mThumb;
+        return thumb;
     }
 
     public String getUrl() {
-        return mUrl;
+        return url;
     }
 }

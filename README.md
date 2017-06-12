@@ -5,7 +5,17 @@
 #### By _**Shane Stafford**_
 
 ### Description
-_This in-progress Android app will eventually allow users to import their record collection for cataloging purposes, as well as access the Discogs API to view items currently on the market for potential purchase._
+_This in-progress Android app will allows users to reference the Discogs API to catalog their personal record collection and save records they do not yet own to a wishlist._
+
+### Future Features
+#### UI
+* Users can add user name and other profile information
+* Additional validation will ensure there is no unintentional crossover between lists or multiple saves of same inventory item
+* Allow users to migrate items from wishlist to collection, delete items as needed
+* Updated views/ styling
+#### UI
+* Move remaining activities outside of Main, Login and Account Creation to fragments
+* Move remaining LinearLayouts to ConstraintLayouts
 
 ### Technologies Used
 * Java, Android, XML
@@ -33,4 +43,4 @@ You will need the following things properly installed on your computer.
 
 Copyright (c) 2017 **_Shane Stafford_**
 
-his software is licensed under the MIT license.
+This software is licensed under the MIT license.

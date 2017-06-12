@@ -27,9 +27,6 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class WishlistListFragment extends Fragment {
     @BindView(R.id.apiRecycler) RecyclerView mApiRecycler;
     private AlbumSearch mAlbumSearch;
