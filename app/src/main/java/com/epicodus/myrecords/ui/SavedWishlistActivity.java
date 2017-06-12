@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
+import com.epicodus.myrecords.adapters.FirebaseCollectionViewHolder;
 import com.epicodus.myrecords.adapters.FirebaseWishlistViewHolder;
 import com.epicodus.myrecords.models.WishlistAlbum;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -32,12 +33,12 @@ public class SavedWishlistActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<WishlistAlbum, FirebaseWishlistViewHolder>
-                (WishlistAlbum.class, R.layout.wishlist_list_item, FirebaseWishlistViewHolder.class,
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<WishlistAlbum, FirebaseCollectionViewHolder>
+                (WishlistAlbum.class, R.layout.wishlist_list_item, FirebaseCollectionViewHolder.class,
                         mWishlistRef) {
 
             @Override
-            protected void populateViewHolder(FirebaseWishlistViewHolder viewHolder, WishlistAlbum model, int position) {
+            protected void populateViewHolder(FirebaseCollectionViewHolder viewHolder, WishlistAlbum model, int position) {
                 viewHolder.bindWishlist(model);
             }
         };
