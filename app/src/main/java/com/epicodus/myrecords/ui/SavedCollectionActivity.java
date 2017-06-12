@@ -11,6 +11,8 @@ import com.epicodus.myrecords.adapters.FirebaseCollectionViewHolder;
 import com.epicodus.myrecords.adapters.FirebaseWishlistViewHolder;
 import com.epicodus.myrecords.models.WishlistAlbum;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,7 +30,14 @@ public class SavedCollectionActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_wishlist_list);
         ButterKnife.bind(this);
 
-        mCollectionRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_COLLECTION);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mCollectionRef = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_COLLECTION)
+                .child(uid);
+
         setUpFirebaseAdapter();
     }
 

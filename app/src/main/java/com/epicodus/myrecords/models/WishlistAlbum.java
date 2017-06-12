@@ -10,6 +10,7 @@ public class WishlistAlbum {
     String country;
     String thumb;
     String url;
+    private String pushId;
 
     public WishlistAlbum() {
     }
@@ -45,5 +46,13 @@ public class WishlistAlbum {
 
     public String getUrl() {
         return url;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }
