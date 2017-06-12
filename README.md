@@ -13,6 +13,7 @@ _This in-progress Android app will allows users to reference the Discogs API to 
 * Additional validation will ensure there is no unintentional crossover between lists or multiple saves of same inventory item
 * Allow users to migrate items from wishlist to collection, delete items as needed
 * Updated views/ styling
+* Add statement if search produces no results
 #### UI
 * Move remaining activities outside of Main, Login and Account Creation to fragments
 * Move remaining LinearLayouts to ConstraintLayouts
