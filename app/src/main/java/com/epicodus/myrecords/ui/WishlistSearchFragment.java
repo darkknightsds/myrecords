@@ -40,11 +40,8 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
     @BindView(R.id.searchAlbum) EditText mSearchAlbum;
     @BindView(R.id.searchFormat) EditText mSearchFormat;
     @BindView(R.id.searchButton) Button mSearchButton;
-//    @BindView(R.id.apiRecycler) RecyclerView mApiRecycler;
 
     private Unbinder unbinder;
-//    private WishlistAdapter mAdapter;
-//    public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
     private AlbumSearch mAlbumSearch;
     private WishlistListFragment mWishlistListFragment;
 
@@ -90,33 +87,6 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
             }
         }
     }
-
-//    private void getAlbums(String artist, String release_title, String format) {
-//        final DiscogsService discogsService = new DiscogsService();
-//        discogsService.findRecords(artist, release_title, format, new Callback() {
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                mAlbums = discogsService.processResults(response);
-//
-//                getActivity().runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Log.d("was this successful","yes");
-//                        mAdapter = new WishlistAdapter(getActivity().getApplicationContext(), mAlbums);
-//                        mApiRecycler.setAdapter(mAdapter);
-//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-//                        mApiRecycler.setLayoutManager(layoutManager);
-//                        mApiRecycler.setHasFixedSize(true);
-//                    }
-//                });
-//            }
-//        });
-//    }
 
 }
 
