@@ -58,6 +58,8 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
         View view = inflater.inflate(R.layout.fragment_wishlist_detail, container, false);
         ButterKnife.bind(this, view);
 
+        toggleButtons();
+
         Picasso.with(view.getContext()).load(mWishlistAlbum.getThumb()).into(mWishlistThumb);
 
         mWishlistTitle.setText(mWishlistAlbum.getTitle());
@@ -103,6 +105,13 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
             mWishlistAlbum.setPushId(pushId);
             pushRef.setValue(mWishlistAlbum);
             Toast.makeText(getContext(), "Saved to MyWishlist", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void toggleButtons() {
+        if (!(mWishlistAlbum.getPushId() == null)) {
+            mCollectionButton.setVisibility(View.GONE);
+            mWishlistButton.setVisibility(View.GONE);
         }
     }
 
