@@ -28,10 +28,12 @@ public class WishlistAlbumDetail extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mAlbums = Parcels.unwrap(getIntent().getParcelableExtra("albums"));
-        int startingPosition = getIntent().getIntExtra("position", 0);
+        int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
+
 
         adapterViewPager = new WishlistPagerAdapter(getSupportFragmentManager(), mAlbums);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }
+
 }

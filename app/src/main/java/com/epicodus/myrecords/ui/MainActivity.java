@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.epicodus.myrecords.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,16 +63,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_collection) {
-            Intent intent = new Intent(MainActivity.this, SavedWishlistActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_wishlist) {
             Intent intent = new Intent(MainActivity.this, SavedCollectionActivity.class);
             startActivity(intent);
-
+        } else if (id == R.id.nav_wishlist) {
+            Intent intent = new Intent(MainActivity.this, SavedWishlistActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_search) {
-
+            loadFragment(new WishlistSearchFragment());
         } else if (id == R.id.nav_logout) {
-
+            logout();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -82,6 +82,14 @@ public class MainActivity extends AppCompatActivity
     public void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
+    }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
 }

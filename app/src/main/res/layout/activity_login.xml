@@ -23,14 +23,13 @@
 
     <EditText
         android:id="@+id/enterEmail"
-        android:layout_width="0dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorTextIcons"
         android:ems="10"
         android:hint="Email"
@@ -40,16 +39,17 @@
         app:layout_constraintBottom_toTopOf="@+id/enterPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <EditText
         android:id="@+id/enterPassword"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:backgroundTint="@color/colorTextIcons"
         android:ems="10"
         android:hint="Password"
@@ -59,17 +59,17 @@
         app:layout_constraintBottom_toTopOf="@+id/createAccountButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/enterEmail"
-        app:layout_constraintRight_toRightOf="@+id/enterEmail"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintRight_toRightOf="@+id/enterEmail" />
 
     <Button
         android:id="@+id/createAccountButton"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:background="@color/colorAccent"
         android:text="Sign In"
         android:textColor="@color/colorTextIcons"
@@ -77,15 +77,17 @@
         app:layout_constraintBottom_toTopOf="@+id/createAccount"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/enterPassword"
-        app:layout_constraintRight_toRightOf="@+id/enterPassword"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintRight_toRightOf="@+id/enterPassword" />
 
     <TextView
         android:id="@+id/createAccount"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:gravity="center"
         android:text="Create New Account"
         android:textColor="@color/colorTextIcons"
@@ -93,11 +95,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/createAccountButton"
-        app:layout_constraintRight_toRightOf="@+id/createAccountButton"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintRight_toRightOf="@+id/createAccountButton" />
 
     <TextView
         android:id="@+id/loginHeader"

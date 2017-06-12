@@ -33,12 +33,12 @@ public class SavedWishlistActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<WishlistAlbum, FirebaseCollectionViewHolder>
-                (WishlistAlbum.class, R.layout.wishlist_list_item, FirebaseCollectionViewHolder.class,
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<WishlistAlbum, FirebaseWishlistViewHolder>
+                (WishlistAlbum.class, R.layout.wishlist_list_item, FirebaseWishlistViewHolder.class,
                         mWishlistRef) {
 
             @Override
-            protected void populateViewHolder(FirebaseCollectionViewHolder viewHolder, WishlistAlbum model, int position) {
+            protected void populateViewHolder(FirebaseWishlistViewHolder viewHolder, WishlistAlbum model, int position) {
                 viewHolder.bindWishlist(model);
             }
         };
