@@ -11,6 +11,8 @@ import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.models.WishlistAlbum;
 import com.epicodus.myrecords.ui.WishlistAlbumDetail;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,8 +53,12 @@ public class FirebaseCollectionViewHolder extends RecyclerView.ViewHolder implem
 
     @Override
     public void onClick(View view) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
         final ArrayList<WishlistAlbum> albums = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_COLLECTION);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_COLLECTION).child(uid);
+
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
