@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent intent = new Intent(MainActivity.this, MyWishlist.class);
+            Intent intent = new Intent(MainActivity.this, SavedWishlistActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 

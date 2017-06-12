@@ -65,7 +65,7 @@ public class FirebaseCollectionViewHolder extends RecyclerView.ViewHolder implem
 
                 Intent intent = new Intent(mContext, WishlistAlbumDetail.class);
                 intent.putExtra("position", itemPosition + "");
-                intent.putExtra("restaurants", Parcels.wrap(albums));
+                intent.putExtra("albums", Parcels.wrap(albums));
 
                 mContext.startActivity(intent);
             }

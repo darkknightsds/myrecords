@@ -16,6 +16,7 @@
             android:windowSoftInputMode="stateVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -34,10 +35,13 @@
         <activity
             android:name=".ui.MainActivity"
             android:label="MyRecords"
-            android:windowSoftInputMode="stateVisible"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.CreateAccountActivity"
-            android:windowSoftInputMode="stateVisible"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".ui.CreateAccountActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity android:name=".ui.SavedCollectionActivity" />
+        <activity android:name=".ui.SavedWishlistActivity"></activity>
     </application>
 
 </manifest>
