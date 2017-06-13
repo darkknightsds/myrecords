@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -64,6 +65,13 @@ public class MainActivity extends AppCompatActivity
         Typeface headerFont = Typeface.createFromAsset(getAssets(), "fonts/header.ttf");
         mMainHeader.setTypeface(headerFont);
         mRecentSearchesTV.setTypeface(headerFont);
+
+        mSearchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                loadFragment(new WishlistSearchFragment());
+            }
+        });
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_KEY, null);

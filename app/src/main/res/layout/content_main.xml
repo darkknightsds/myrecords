@@ -48,7 +48,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
-        android:text="My Recent Searches"
+        android:text="Most Recent Search"
         android:textAlignment="center"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp"
