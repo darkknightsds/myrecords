@@ -64,7 +64,12 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
         }
 
         public void bindWishlist(WishlistAlbum album) {
-            Picasso.with(mContext).load(album.getThumb()).into(mWishlistListThumb);
+            if (album.getThumb().isEmpty()) {
+                Picasso.with(mContext).load(R.drawable.unavailable).into(mWishlistListThumb);
+            } else {
+                Picasso.with(mContext).load(album.getThumb()).into(mWishlistListThumb);
+
+            }
             mWishlistListTitle.setText(album.getTitle());
             mWishlistListFormat.setText(album.getFormat());
             mWishlistListCountry.setText(album.getCountry());
