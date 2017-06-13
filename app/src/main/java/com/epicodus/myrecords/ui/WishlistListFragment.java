@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
@@ -82,6 +83,9 @@ public class WishlistListFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        if (mAlbums.size() < 1) {
+                            Toast.makeText(getActivity(), "No Results - Try Again", Toast.LENGTH_LONG).show();
+                        }
                         mAdapter = new WishlistAdapter(getActivity().getApplicationContext(), mAlbums);
                         mApiRecycler.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
