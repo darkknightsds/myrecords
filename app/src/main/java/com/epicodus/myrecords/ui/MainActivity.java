@@ -2,6 +2,7 @@ package com.epicodus.myrecords.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -18,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.mainHeader) TextView mMainHeader;
     @BindView(R.id.searchList) ListView mSearchList;
+    @BindView(R.id.recentSearchesTV) TextView mRecentSearchesTV;
 
     private SharedPreferences mSharedPreferences;
     private String mRecentSearch;
@@ -60,12 +63,20 @@ public class MainActivity extends AppCompatActivity
 
         Typeface headerFont = Typeface.createFromAsset(getAssets(), "fonts/header.ttf");
         mMainHeader.setTypeface(headerFont);
+        mRecentSearchesTV.setTypeface(headerFont);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_KEY, null);
         recentSearches.add(mRecentSearch);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recentSearches);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recentSearches) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                TextView textView = (TextView) super.getView(position, convertView, parent);
+                textView.setTextColor(Color.WHITE);
+                return textView;
+            }
+        };
         mSearchList.setAdapter(adapter);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

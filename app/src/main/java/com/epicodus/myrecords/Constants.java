@@ -1,5 +1,7 @@
 package com.epicodus.myrecords;
 
+import java.util.ArrayList;
+
 public class Constants {
     public static final String DISCOGS_CONSUMER_KEY = BuildConfig.DISCOGS_CONSUMER_KEY;
     public static final String DISCOGS_CONSUMER_SECRET = BuildConfig.DISCOGS_CONSUMER_SECRET;

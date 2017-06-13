@@ -36,9 +36,6 @@ public class WishlistListFragment extends Fragment {
     private WishlistAdapter mAdapter;
     public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
 
-    private SharedPreferences mSharedPreferences;
-    private String mRecentSearch;
-
     public WishlistListFragment() {
         // Required empty public constructor
     }
@@ -55,9 +52,6 @@ public class WishlistListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAlbumSearch = Parcels.unwrap(getArguments().getParcelable("albumSearch"));
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_KEY, null);
-        Log.d("Shared Pref Search", mRecentSearch);
     }
 
 
