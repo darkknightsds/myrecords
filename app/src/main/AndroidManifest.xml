@@ -20,18 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MyCollection">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.myrecords.ui.HomeActivity" />
-        </activity>
         <activity android:name=".ui.MyWishlist">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.myrecords.ui.HomeActivity" />
         </activity>
         <activity android:name=".ui.WishlistAlbumDetail" />
-        <activity android:name=".ui.HomeActivity" />
         <activity
             android:name=".ui.MainActivity"
             android:label="MyRecords"
