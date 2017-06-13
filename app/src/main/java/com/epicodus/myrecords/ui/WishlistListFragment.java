@@ -1,7 +1,9 @@
 package com.epicodus.myrecords.ui;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.adapters.WishlistAdapter;
 import com.epicodus.myrecords.models.AlbumSearch;
@@ -33,6 +36,9 @@ public class WishlistListFragment extends Fragment {
     private WishlistAdapter mAdapter;
     public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
 
+    private SharedPreferences mSharedPreferences;
+    private String mRecentSearch;
+
     public WishlistListFragment() {
         // Required empty public constructor
     }
@@ -49,7 +55,9 @@ public class WishlistListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAlbumSearch = Parcels.unwrap(getArguments().getParcelable("albumSearch"));
-        Log.d("album search 2", mAlbumSearch.getArtist());
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_KEY, null);
+        Log.d("Shared Pref Search", mRecentSearch);
     }
 
 

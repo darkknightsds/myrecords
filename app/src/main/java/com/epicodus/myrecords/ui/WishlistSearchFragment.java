@@ -1,8 +1,10 @@
 package com.epicodus.myrecords.ui;
 
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.adapters.WishlistAdapter;
 import com.epicodus.myrecords.models.AlbumSearch;
@@ -41,6 +44,9 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
     @BindView(R.id.searchFormat) EditText mSearchFormat;
     @BindView(R.id.searchButton) Button mSearchButton;
 
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     private Unbinder unbinder;
     private AlbumSearch mAlbumSearch;
     private WishlistListFragment mWishlistListFragment;
@@ -57,6 +63,9 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
         mSearchHeader.setTypeface(headerFont);
         mSearchButton.setOnClickListener(this);
         getActivity().findViewById(R.id.fab).setVisibility(View.GONE);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mEditor = mSharedPreferences.edit();
 
         // Inflate the layout for this fragment
         return view;
@@ -75,6 +84,7 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
             String artist = mSearchArtist.getText().toString();
             String release_title = mSearchAlbum.getText().toString();
             String format = mSearchFormat.getText().toString();
+            addToSharedPreferences(artist, release_title, format);
             if (mSearchArtist.getText().toString().equals("") || mSearchAlbum.getText().toString().equals("") || mSearchFormat.getText().toString().equals("")) {
                 Toast.makeText(getActivity(), "Please Complete All Fields", Toast.LENGTH_LONG).show();
             } else {
@@ -86,6 +96,11 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
                 ((MainActivity)getActivity()).loadFragment(mWishlistListFragment.newInstance(mAlbumSearch));
             }
         }
+
+    }
+
+    private void addToSharedPreferences(String artist, String release_title, String format) {
+        mEditor.putString(Constants.PREFERENCES_SEARCH_KEY, artist + ", " + release_title + ", " + format).apply();
     }
 
 }

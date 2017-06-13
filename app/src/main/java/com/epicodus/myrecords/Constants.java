@@ -9,5 +9,5 @@ public class Constants {
     public static final String DISCOGS_FORMAT_QUERY_PARAMETER = "format";
     public static final String FIREBASE_CHILD_WISHLIST = "wishlist_items";
     public static final String FIREBASE_CHILD_COLLECTION = "collection_items";
-
+    public static final String PREFERENCES_SEARCH_KEY = "search";
 }
