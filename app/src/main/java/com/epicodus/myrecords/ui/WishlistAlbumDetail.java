@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.adapters.WishlistPagerAdapter;
-import com.epicodus.myrecords.models.WishlistAlbum;
+import com.epicodus.myrecords.models.Album;
 
 import org.parceler.Parcels;
 
@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 public class WishlistAlbumDetail extends AppCompatActivity {
     @BindView(R.id.wishlistPager) ViewPager mViewPager;
     private WishlistPagerAdapter adapterViewPager;
-    ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
+    ArrayList<Album> mAlbums = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

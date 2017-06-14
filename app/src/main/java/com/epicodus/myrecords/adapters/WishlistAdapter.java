@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epicodus.myrecords.R;
-import com.epicodus.myrecords.models.WishlistAlbum;
+import com.epicodus.myrecords.models.Album;
 import com.epicodus.myrecords.ui.WishlistAlbumDetail;
 import com.squareup.picasso.Picasso;
 
@@ -23,10 +23,10 @@ import butterknife.ButterKnife;
 
 
 public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.WishlistViewHolder> {
-    private ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
+    private ArrayList<Album> mAlbums = new ArrayList<>();
     private Context mContext;
 
-    public WishlistAdapter(Context context, ArrayList<WishlistAlbum> albums) {
+    public WishlistAdapter(Context context, ArrayList<Album> albums) {
         mContext = context;
         mAlbums = albums;
     }
@@ -63,7 +63,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             itemView.setOnClickListener(this);
         }
 
-        public void bindWishlist(WishlistAlbum album) {
+        public void bindWishlist(Album album) {
             if (album.getThumb().isEmpty()) {
                 Picasso.with(mContext).load(R.drawable.unavailable).into(mWishlistListThumb);
             } else {

@@ -1,23 +1,19 @@
 package com.epicodus.myrecords.ui;
 
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.adapters.WishlistAdapter;
+import com.epicodus.myrecords.models.Album;
 import com.epicodus.myrecords.models.AlbumSearch;
-import com.epicodus.myrecords.models.WishlistAlbum;
 import com.epicodus.myrecords.services.DiscogsService;
 
 import org.parceler.Parcels;
@@ -35,7 +31,7 @@ public class WishlistListFragment extends Fragment {
     @BindView(R.id.apiRecycler) RecyclerView mApiRecycler;
     private AlbumSearch mAlbumSearch;
     private WishlistAdapter mAdapter;
-    public ArrayList<WishlistAlbum> mAlbums = new ArrayList<>();
+    public ArrayList<Album> mAlbums = new ArrayList<>();
 
     public WishlistListFragment() {
         // Required empty public constructor

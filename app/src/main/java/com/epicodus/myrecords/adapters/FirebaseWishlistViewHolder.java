@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
-import com.epicodus.myrecords.models.WishlistAlbum;
+import com.epicodus.myrecords.models.Album;
 import com.epicodus.myrecords.ui.WishlistAlbumDetail;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,7 +36,7 @@ public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implemen
         itemView.setOnClickListener(this);
     }
 
-    public void bindWishlist(WishlistAlbum album) {
+    public void bindWishlist(Album album) {
         ImageView wishlistThumb = (ImageView) mView.findViewById(R.id.wishlistListThumb);
         TextView wishlistTitle = (TextView) mView.findViewById(R.id.wishlistListTitle);
         TextView wishlistFormat = (TextView) mView.findViewById(R.id.wishlistListFormat);
@@ -56,7 +56,7 @@ public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implemen
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-        final ArrayList<WishlistAlbum> albums = new ArrayList<>();
+        final ArrayList<Album> albums = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_WISHLIST).child(uid);
 
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -64,7 +64,7 @@ public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implemen
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    albums.add(snapshot.getValue(WishlistAlbum.class));
+                    albums.add(snapshot.getValue(Album.class));
                 }
 
                 int itemPosition = getLayoutPosition();

@@ -1,10 +1,7 @@
 package com.epicodus.myrecords.services;
 
-import android.util.Log;
-
 import com.epicodus.myrecords.Constants;
-import com.epicodus.myrecords.ui.MyWishlist;
-import com.epicodus.myrecords.models.WishlistAlbum;
+import com.epicodus.myrecords.models.Album;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,8 +31,8 @@ public class DiscogsService {
         call.enqueue(callback);
     }
 
-    public ArrayList<WishlistAlbum> processResults(Response response) {
-        ArrayList<WishlistAlbum> albums = new ArrayList<>();
+    public ArrayList<Album> processResults(Response response) {
+        ArrayList<Album> albums = new ArrayList<>();
 
         try {
             String jsonData = response.body().string();
@@ -56,7 +53,7 @@ public class DiscogsService {
                     String thumb = albumJSON.getString("thumb");
                     String uri = albumJSON.getString("uri");
                     String url = "https://www.discogs.com" + uri;
-                    WishlistAlbum album = new WishlistAlbum(title, year, convertedFormat, country, thumb, url);
+                    Album album = new Album(title, year, convertedFormat, country, thumb, url);
                     albums.add(album);
                 }
             }

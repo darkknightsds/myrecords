@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
-import com.epicodus.myrecords.models.WishlistAlbum;
+import com.epicodus.myrecords.models.Album;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -37,9 +36,9 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
     @BindView(R.id.saveWishlistButton) Button mWishlistButton;
     @BindView(R.id.saveCollectionButton) Button mCollectionButton;
 
-    private WishlistAlbum mWishlistAlbum;
+    private Album mAlbum;
 
-    public static WishlistDetailFragment newInstance(WishlistAlbum album) {
+    public static WishlistDetailFragment newInstance(Album album) {
         WishlistDetailFragment wishlistDetailFragment = new WishlistDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("album", Parcels.wrap(album));
@@ -50,7 +49,7 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mWishlistAlbum = Parcels.unwrap(getArguments().getParcelable("album"));
+        mAlbum = Parcels.unwrap(getArguments().getParcelable("album"));
     }
 
     @Override
@@ -60,13 +59,13 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
 
         toggleButtons();
 
-        Picasso.with(view.getContext()).load(mWishlistAlbum.getThumb()).into(mWishlistThumb);
+        Picasso.with(view.getContext()).load(mAlbum.getThumb()).into(mWishlistThumb);
 
-        mWishlistTitle.setText(mWishlistAlbum.getTitle());
-        mWishlistYear.setText(mWishlistAlbum.getYear());
-        mWishlistFormat.setText(mWishlistAlbum.getFormat());
-        mWishlistCountry.setText(mWishlistAlbum.getCountry());
-        mWishlistUrl.setText(mWishlistAlbum.getUrl());
+        mWishlistTitle.setText(mAlbum.getTitle());
+        mWishlistYear.setText(mAlbum.getYear());
+        mWishlistFormat.setText(mAlbum.getFormat());
+        mWishlistCountry.setText(mAlbum.getCountry());
+        mWishlistUrl.setText(mAlbum.getUrl());
         mWishlistUrl.setOnClickListener(this);
         mWishlistButton.setOnClickListener(this);
         mCollectionButton.setOnClickListener(this);
@@ -77,7 +76,7 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
     @Override
     public void onClick (View v) {
         if (v == mWishlistUrl) {
-            Intent discogsIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mWishlistAlbum.getUrl()));
+            Intent discogsIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mAlbum.getUrl()));
             startActivity(discogsIntent);
         }
         if (v == mCollectionButton) {
@@ -89,8 +88,8 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
                     .child(uid);
             DatabaseReference pushRef = collectionRef.push();
             String pushId = pushRef.getKey();
-            mWishlistAlbum.setPushId(pushId);
-            pushRef.setValue(mWishlistAlbum);
+            mAlbum.setPushId(pushId);
+            pushRef.setValue(mAlbum);
             Toast.makeText(getContext(), "Added to MyCollection", Toast.LENGTH_SHORT).show();
         }
         if (v == mWishlistButton) {
@@ -102,14 +101,14 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
                     .child(uid);
             DatabaseReference pushRef = wishlistRef.push();
             String pushId = pushRef.getKey();
-            mWishlistAlbum.setPushId(pushId);
-            pushRef.setValue(mWishlistAlbum);
+            mAlbum.setPushId(pushId);
+            pushRef.setValue(mAlbum);
             Toast.makeText(getContext(), "Saved to MyWishlist", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void toggleButtons() {
-        if (!(mWishlistAlbum.getPushId() == null)) {
+        if (!(mAlbum.getPushId() == null)) {
             mCollectionButton.setVisibility(View.GONE);
             mWishlistButton.setVisibility(View.GONE);
         }

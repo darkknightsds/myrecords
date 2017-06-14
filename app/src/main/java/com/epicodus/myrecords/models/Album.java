@@ -3,7 +3,7 @@ package com.epicodus.myrecords.models;
 import org.parceler.Parcel;
 
 @Parcel
-public class WishlistAlbum {
+public class Album {
     String title;
     String year;
     String format;
@@ -12,10 +12,10 @@ public class WishlistAlbum {
     String url;
     private String pushId;
 
-    public WishlistAlbum() {
+    public Album() {
     }
 
-    public WishlistAlbum(String title, String year, String format, String country, String thumb, String url) {
+    public Album(String title, String year, String format, String country, String thumb, String url) {
         this.title = title;
         this.year = year;
         this.format = format;

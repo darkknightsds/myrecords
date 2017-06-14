@@ -77,7 +77,9 @@ public class MainActivity extends AppCompatActivity
         mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_KEY, null);
         recentSearches.add(mRecentSearch);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recentSearches) {
+
+        if (!(mRecentSearch == null)) {
+            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recentSearches) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 TextView textView = (TextView) super.getView(position, convertView, parent);
@@ -85,7 +87,10 @@ public class MainActivity extends AppCompatActivity
                 return textView;
             }
         };
-        mSearchList.setAdapter(adapter);
+            mSearchList.setAdapter(adapter);
+
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

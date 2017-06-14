@@ -6,10 +6,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,22 +16,13 @@ import android.widget.Toast;
 
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
-import com.epicodus.myrecords.adapters.WishlistAdapter;
 import com.epicodus.myrecords.models.AlbumSearch;
-import com.epicodus.myrecords.models.WishlistAlbum;
-import com.epicodus.myrecords.services.DiscogsService;
 
 import org.parceler.Parcels;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 public class WishlistSearchFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.searchHeader) TextView mSearchHeader;

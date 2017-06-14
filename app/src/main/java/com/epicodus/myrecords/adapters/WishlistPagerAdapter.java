@@ -4,15 +4,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.epicodus.myrecords.models.WishlistAlbum;
+import com.epicodus.myrecords.models.Album;
 import com.epicodus.myrecords.ui.WishlistDetailFragment;
 
 import java.util.ArrayList;
 
 public class WishlistPagerAdapter extends FragmentPagerAdapter {
-    private ArrayList<WishlistAlbum> mAlbums;
+    private ArrayList<Album> mAlbums;
 
-    public WishlistPagerAdapter(FragmentManager fm, ArrayList<WishlistAlbum> albums) {
+    public WishlistPagerAdapter(FragmentManager fm, ArrayList<Album> albums) {
         super(fm);
         mAlbums = albums;
     }
