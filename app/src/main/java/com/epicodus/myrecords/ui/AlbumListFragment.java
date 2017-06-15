@@ -33,9 +33,7 @@ public class AlbumListFragment extends Fragment {
     private WishlistAdapter mAdapter;
     public ArrayList<Album> mAlbums = new ArrayList<>();
 
-    public AlbumListFragment() {
-        // Required empty public constructor
-    }
+    public AlbumListFragment() {}
 
     public static AlbumListFragment newInstance(AlbumSearch albumSearch) {
         AlbumListFragment albumListFragment = new AlbumListFragment();
@@ -50,8 +48,6 @@ public class AlbumListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mAlbumSearch = Parcels.unwrap(getArguments().getParcelable("albumSearch"));
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

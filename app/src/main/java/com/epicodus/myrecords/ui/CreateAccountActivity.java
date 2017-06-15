@@ -59,7 +59,6 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         createAuthProgressDialog();
     }
 
-
     @Override
     public void onClick(View v) {
         if (v == mLogin) {

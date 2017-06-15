@@ -38,8 +38,7 @@ public class AlbumSearchFragment extends Fragment implements View.OnClickListene
     private AlbumSearch mAlbumSearch;
     private AlbumListFragment mAlbumListFragment;
 
-    public AlbumSearchFragment() {
-    }
+    public AlbumSearchFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +53,6 @@ public class AlbumSearchFragment extends Fragment implements View.OnClickListene
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mEditor = mSharedPreferences.edit();
 
-        // Inflate the layout for this fragment
         return view;
     }
 
