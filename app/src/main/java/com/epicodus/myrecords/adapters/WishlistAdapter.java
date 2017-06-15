@@ -31,7 +31,6 @@ import butterknife.ButterKnife;
 
 public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.WishlistViewHolder> {
     private ArrayList<Album> mAlbums = new ArrayList<>();
-    private Album mAlbum;
     private Context mContext;
 
     public WishlistAdapter(Context context, ArrayList<Album> albums) {
@@ -49,6 +48,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     @Override
     public void onBindViewHolder(WishlistAdapter.WishlistViewHolder holder, int position) {
         holder.bindWishlist(mAlbums.get(position));
+
     }
 
     @Override
@@ -64,7 +64,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
         @BindView(R.id.collectionImageButton) ImageButton mCollectionImageButton;
         @BindView(R.id.wishlistImageButton) ImageButton mWishlistImageButton;
 
-
+        private Album mAlbum;
         private Context mContext;
 
         public WishlistViewHolder(View itemView) {
@@ -86,6 +86,8 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             mWishlistListCountry.setText(album.getCountry());
             mCollectionImageButton.setOnClickListener(this);
             mWishlistImageButton.setOnClickListener(this);
+            mAlbum = album;
+
         }
 
         @Override
