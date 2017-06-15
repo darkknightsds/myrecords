@@ -84,6 +84,8 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             mWishlistListTitle.setText(album.getTitle());
             mWishlistListFormat.setText(album.getFormat());
             mWishlistListCountry.setText(album.getCountry());
+            mWishlistListTitle.setOnClickListener(this);
+            mWishlistListThumb.setOnClickListener(this);
             mCollectionImageButton.setOnClickListener(this);
             mWishlistImageButton.setOnClickListener(this);
             mAlbum = album;
