@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,7 +34,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
 
     @Override
     public WishlistAdapter.WishlistViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.wishlist_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.wishlist_list_cards, parent, false);
         WishlistViewHolder viewHolder = new WishlistViewHolder(view);
         return viewHolder;
     }
@@ -49,10 +50,13 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
     }
 
     public class WishlistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.wishlistListThumb) ImageView mWishlistListThumb;
-        @BindView(R.id.wishlistListTitle) TextView mWishlistListTitle;
-        @BindView(R.id.wishlistListFormat) TextView mWishlistListFormat;
-        @BindView(R.id.wishlistListCountry) TextView mWishlistListCountry;
+        @BindView(R.id.cardImage) ImageView mWishlistListThumb;
+        @BindView(R.id.cardTitle) TextView mWishlistListTitle;
+        @BindView(R.id.cardFormat) TextView mWishlistListFormat;
+        @BindView(R.id.cardCountry) TextView mWishlistListCountry;
+        @BindView(R.id.collectionButton) ImageButton mCollectionButton;
+        @BindView(R.id.wishlistButton) ImageButton mWishlistButton;
+
 
         private Context mContext;
 
