@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class WishlistAlbumDetail extends AppCompatActivity {
+public class AlbumDetail extends AppCompatActivity {
     @BindView(R.id.wishlistPager) ViewPager mViewPager;
     private WishlistPagerAdapter adapterViewPager;
     ArrayList<Album> mAlbums = new ArrayList<>();
@@ -24,7 +24,7 @@ public class WishlistAlbumDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wishlist_album_detail);
+        setContentView(R.layout.activity_album_detail);
         ButterKnife.bind(this);
 
         mAlbums = Parcels.unwrap(getIntent().getParcelableExtra("albums"));

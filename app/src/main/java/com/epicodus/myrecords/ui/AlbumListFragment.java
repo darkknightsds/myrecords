@@ -27,22 +27,22 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class WishlistListFragment extends Fragment {
+public class AlbumListFragment extends Fragment {
     @BindView(R.id.apiRecycler) RecyclerView mApiRecycler;
     private AlbumSearch mAlbumSearch;
     private WishlistAdapter mAdapter;
     public ArrayList<Album> mAlbums = new ArrayList<>();
 
-    public WishlistListFragment() {
+    public AlbumListFragment() {
         // Required empty public constructor
     }
 
-    public static WishlistListFragment newInstance(AlbumSearch albumSearch) {
-        WishlistListFragment wishlistListFragment = new WishlistListFragment();
+    public static AlbumListFragment newInstance(AlbumSearch albumSearch) {
+        AlbumListFragment albumListFragment = new AlbumListFragment();
         Bundle args = new Bundle();
         args.putParcelable("albumSearch", Parcels.wrap(albumSearch));
-        wishlistListFragment.setArguments(args);
-        return wishlistListFragment;
+        albumListFragment.setArguments(args);
+        return albumListFragment;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class WishlistListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wishlist_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_album_list, container, false);
         ButterKnife.bind(this, view);
         getAlbums(mAlbumSearch.getArtist(), mAlbumSearch.getTitle(), mAlbumSearch.getFormat());
 

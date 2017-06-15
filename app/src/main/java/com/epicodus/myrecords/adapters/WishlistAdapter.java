@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.models.Album;
-import com.epicodus.myrecords.ui.WishlistAlbumDetail;
+import com.epicodus.myrecords.ui.AlbumDetail;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -95,7 +95,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
         public void onClick(View v) {
             if (v == mWishlistListThumb || v == mWishlistListTitle) {
                 int itemPosition = getLayoutPosition();
-                Intent intent = new Intent(mContext, WishlistAlbumDetail.class);
+                Intent intent = new Intent(mContext, AlbumDetail.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("albums", Parcels.wrap(mAlbums));
                 mContext.startActivity(intent);

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.models.Album;
-import com.epicodus.myrecords.ui.WishlistAlbumDetail;
+import com.epicodus.myrecords.ui.AlbumDetail;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -83,7 +83,7 @@ public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implemen
 
                 int itemPosition = getLayoutPosition();
 
-                Intent intent = new Intent(mContext, WishlistAlbumDetail.class);
+                Intent intent = new Intent(mContext, AlbumDetail.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("albums", Parcels.wrap(albums));
 

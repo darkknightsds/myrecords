@@ -26,7 +26,7 @@ import org.parceler.Parcels;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class WishlistDetailFragment extends Fragment implements View.OnClickListener {
+public class AlbumDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.wishlistThumb) ImageView mWishlistThumb;
     @BindView(R.id.wishlistTitle) TextView mWishlistTitle;
     @BindView(R.id.wishlistYear) TextView mWishlistYear;
@@ -38,12 +38,12 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
 
     private Album mAlbum;
 
-    public static WishlistDetailFragment newInstance(Album album) {
-        WishlistDetailFragment wishlistDetailFragment = new WishlistDetailFragment();
+    public static AlbumDetailFragment newInstance(Album album) {
+        AlbumDetailFragment albumDetailFragment = new AlbumDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("album", Parcels.wrap(album));
-        wishlistDetailFragment.setArguments(args);
-        return wishlistDetailFragment;
+        albumDetailFragment.setArguments(args);
+        return albumDetailFragment;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class WishlistDetailFragment extends Fragment implements View.OnClickList
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wishlist_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_album_detail, container, false);
         ButterKnife.bind(this, view);
 
         toggleButtons();

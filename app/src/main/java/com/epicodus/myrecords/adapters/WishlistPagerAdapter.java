@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.epicodus.myrecords.models.Album;
-import com.epicodus.myrecords.ui.WishlistDetailFragment;
+import com.epicodus.myrecords.ui.AlbumDetailFragment;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class WishlistPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return WishlistDetailFragment.newInstance(mAlbums.get(position));
+        return AlbumDetailFragment.newInstance(mAlbums.get(position));
     }
 
     @Override

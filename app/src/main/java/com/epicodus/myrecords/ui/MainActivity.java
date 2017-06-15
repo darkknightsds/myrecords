@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,7 +16,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadFragment(new WishlistSearchFragment());
+                loadFragment(new AlbumSearchFragment());
             }
         });
 
@@ -69,7 +67,7 @@ public class MainActivity extends AppCompatActivity
         mSearchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                loadFragment(new WishlistSearchFragment());
+                loadFragment(new AlbumSearchFragment());
             }
         });
 
@@ -123,7 +121,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_wishlist) {
             loadFragment(new MyWishlistFragment());
         } else if (id == R.id.nav_search) {
-            loadFragment(new WishlistSearchFragment());
+            loadFragment(new AlbumSearchFragment());
         } else if (id == R.id.nav_logout) {
             logout();
         }

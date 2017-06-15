@@ -24,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class WishlistSearchFragment extends Fragment implements View.OnClickListener {
+public class AlbumSearchFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.searchHeader) TextView mSearchHeader;
     @BindView(R.id.searchArtist) EditText mSearchArtist;
     @BindView(R.id.searchAlbum) EditText mSearchAlbum;
@@ -36,15 +36,15 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
 
     private Unbinder unbinder;
     private AlbumSearch mAlbumSearch;
-    private WishlistListFragment mWishlistListFragment;
+    private AlbumListFragment mAlbumListFragment;
 
-    public WishlistSearchFragment() {
+    public AlbumSearchFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wishlist_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_album_search, container, false);
         unbinder = ButterKnife.bind(this, view);
         Typeface headerFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/header.ttf");
         mSearchHeader.setTypeface(headerFont);
@@ -75,12 +75,12 @@ public class WishlistSearchFragment extends Fragment implements View.OnClickList
             if (mSearchArtist.getText().toString().equals("") || mSearchAlbum.getText().toString().equals("") || mSearchFormat.getText().toString().equals("")) {
                 Toast.makeText(getActivity(), "Please Complete All Fields", Toast.LENGTH_LONG).show();
             } else {
-                mWishlistListFragment = new WishlistListFragment();
+                mAlbumListFragment = new AlbumListFragment();
                 mAlbumSearch = new AlbumSearch(artist, release_title, format);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("albumSearch", Parcels.wrap(mAlbumSearch));
-                mWishlistListFragment.setArguments(bundle);
-                ((MainActivity)getActivity()).loadFragment(mWishlistListFragment.newInstance(mAlbumSearch));
+                mAlbumListFragment.setArguments(bundle);
+                ((MainActivity)getActivity()).loadFragment(mAlbumListFragment.newInstance(mAlbumSearch));
             }
         }
 
