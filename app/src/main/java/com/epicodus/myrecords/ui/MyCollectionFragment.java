@@ -50,7 +50,7 @@ public class MyCollectionFragment extends Fragment {
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Album, FirebaseCollectionViewHolder>
-                (Album.class, R.layout.wishlist_list_cards, FirebaseCollectionViewHolder.class,
+                (Album.class, R.layout.album_list_cards, FirebaseCollectionViewHolder.class,
                         mCollectionRef) {
 
             @Override

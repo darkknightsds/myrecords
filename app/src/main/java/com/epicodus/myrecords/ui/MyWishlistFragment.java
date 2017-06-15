@@ -50,7 +50,7 @@ public class MyWishlistFragment extends Fragment {
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Album, FirebaseWishlistViewHolder>
-                (Album.class, R.layout.wishlist_list_cards, FirebaseWishlistViewHolder.class,
+                (Album.class, R.layout.album_list_cards, FirebaseWishlistViewHolder.class,
                         mWishlistRef) {
 
             @Override
