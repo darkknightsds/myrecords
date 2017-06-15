@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity
 
     private SharedPreferences mSharedPreferences;
     private String mRecentSearch;
-
     private ArrayList<String> recentSearches = new ArrayList<>();
 
     @Override
