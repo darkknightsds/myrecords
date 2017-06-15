@@ -77,7 +77,7 @@
                         card_view:layout_constraintHorizontal_bias="0.5" />
 
                     <ImageButton
-                        android:id="@+id/collectionButton"
+                        android:id="@+id/collectionImageButton"
                         android:background="@null"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
@@ -90,7 +90,7 @@
                         card_view:layout_constraintVertical_bias="0.5" />
 
                     <ImageButton
-                        android:id="@+id/wishlistButton"
+                        android:id="@+id/wishlistImageButton"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:background="@null"

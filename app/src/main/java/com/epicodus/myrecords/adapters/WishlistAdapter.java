@@ -9,10 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.models.Album;
 import com.epicodus.myrecords.ui.WishlistAlbumDetail;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -25,6 +31,7 @@ import butterknife.ButterKnife;
 
 public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.WishlistViewHolder> {
     private ArrayList<Album> mAlbums = new ArrayList<>();
+    private Album mAlbum;
     private Context mContext;
 
     public WishlistAdapter(Context context, ArrayList<Album> albums) {
@@ -54,8 +61,8 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
         @BindView(R.id.cardTitle) TextView mWishlistListTitle;
         @BindView(R.id.cardFormat) TextView mWishlistListFormat;
         @BindView(R.id.cardCountry) TextView mWishlistListCountry;
-        @BindView(R.id.collectionButton) ImageButton mCollectionButton;
-        @BindView(R.id.wishlistButton) ImageButton mWishlistButton;
+        @BindView(R.id.collectionImageButton) ImageButton mCollectionImageButton;
+        @BindView(R.id.wishlistImageButton) ImageButton mWishlistImageButton;
 
 
         private Context mContext;
@@ -64,7 +71,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
-            itemView.setOnClickListener(this);
+
         }
 
         public void bindWishlist(Album album) {
@@ -77,15 +84,45 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             mWishlistListTitle.setText(album.getTitle());
             mWishlistListFormat.setText(album.getFormat());
             mWishlistListCountry.setText(album.getCountry());
+            mCollectionImageButton.setOnClickListener(this);
+            mWishlistImageButton.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext, WishlistAlbumDetail.class);
-            intent.putExtra("position", itemPosition + "");
-            intent.putExtra("albums", Parcels.wrap(mAlbums));
-            mContext.startActivity(intent);
+            if (v == mWishlistListThumb || v == mWishlistListTitle) {
+                int itemPosition = getLayoutPosition();
+                Intent intent = new Intent(mContext, WishlistAlbumDetail.class);
+                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("albums", Parcels.wrap(mAlbums));
+                mContext.startActivity(intent);
+            }
+            if (v == mCollectionImageButton) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+                DatabaseReference collectionRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference(Constants.FIREBASE_CHILD_COLLECTION)
+                        .child(uid);
+                DatabaseReference pushRef = collectionRef.push();
+                String pushId = pushRef.getKey();
+                mAlbum.setPushId(pushId);
+                pushRef.setValue(mAlbum);
+                Toast.makeText(mContext, "Added to MyCollection", Toast.LENGTH_SHORT).show();
+            }
+            if (v == mWishlistImageButton) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+                DatabaseReference wishlistRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference(Constants.FIREBASE_CHILD_WISHLIST)
+                        .child(uid);
+                DatabaseReference pushRef = wishlistRef.push();
+                String pushId = pushRef.getKey();
+                mAlbum.setPushId(pushId);
+                pushRef.setValue(mAlbum);
+                Toast.makeText(mContext, "Saved to MyWishlist", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
