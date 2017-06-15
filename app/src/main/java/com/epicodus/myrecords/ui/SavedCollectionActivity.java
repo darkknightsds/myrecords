@@ -42,7 +42,7 @@ public class SavedCollectionActivity extends AppCompatActivity {
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Album, FirebaseCollectionViewHolder>
-                (Album.class, R.layout.wishlist_list_item, FirebaseCollectionViewHolder.class,
+                (Album.class, R.layout.wishlist_list_cards, FirebaseCollectionViewHolder.class,
                         mCollectionRef) {
 
             @Override
