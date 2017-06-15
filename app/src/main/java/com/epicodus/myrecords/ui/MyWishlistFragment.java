@@ -27,11 +27,7 @@ public class MyWishlistFragment extends Fragment {
     private FirebaseRecyclerAdapter mFirebaseAdapter;
     @BindView(R.id.apiRecycler) RecyclerView mRecyclerView;
 
-
-    public MyWishlistFragment() {
-        // Required empty public constructor
-    }
-
+    public MyWishlistFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +45,6 @@ public class MyWishlistFragment extends Fragment {
 
         setUpFirebaseAdapter();
 
-        // Inflate the layout for this fragment
         return view;
     }
 

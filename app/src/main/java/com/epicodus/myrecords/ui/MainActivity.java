@@ -119,12 +119,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_collection) {
-//            Intent intent = new Intent(MainActivity.this, SavedCollectionActivity.class);
-//            startActivity(intent);
             loadFragment(new MyCollectionFragment());
         } else if (id == R.id.nav_wishlist) {
-//            Intent intent = new Intent(MainActivity.this, SavedWishlistActivity.class);
-//            startActivity(intent);
             loadFragment(new MyWishlistFragment());
         } else if (id == R.id.nav_search) {
             loadFragment(new WishlistSearchFragment());

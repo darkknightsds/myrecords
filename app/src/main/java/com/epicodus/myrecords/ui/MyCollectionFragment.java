@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
+import com.epicodus.myrecords.adapters.FirebaseCollectionViewHolder;
 import com.epicodus.myrecords.adapters.FirebaseWishlistViewHolder;
 import com.epicodus.myrecords.models.Album;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -22,16 +23,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 public class MyCollectionFragment extends Fragment {
     private DatabaseReference mCollectionRef;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
     @BindView(R.id.apiRecycler) RecyclerView mRecyclerView;
 
-    public MyCollectionFragment() {
-        // Required empty public constructor
-    }
-
+    public MyCollectionFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,17 +46,16 @@ public class MyCollectionFragment extends Fragment {
 
         setUpFirebaseAdapter();
 
-        // Inflate the layout for this fragment
         return view;
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Album, FirebaseWishlistViewHolder>
-                (Album.class, R.layout.wishlist_list_cards, FirebaseWishlistViewHolder.class,
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Album, FirebaseCollectionViewHolder>
+                (Album.class, R.layout.wishlist_list_cards, FirebaseCollectionViewHolder.class,
                         mCollectionRef) {
 
             @Override
-            protected void populateViewHolder(FirebaseWishlistViewHolder viewHolder, Album model, int position) {
+            protected void populateViewHolder(FirebaseCollectionViewHolder viewHolder, Album model, int position) {
                 viewHolder.bindWishlist(model);
             }
         };

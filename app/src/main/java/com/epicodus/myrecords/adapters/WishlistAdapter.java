@@ -89,8 +89,6 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
             mCollectionImageButton.setOnClickListener(this);
             mWishlistImageButton.setOnClickListener(this);
             mAlbum = album;
-//            toggleButtons();
-
         }
 
         @Override
@@ -129,12 +127,5 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.Wishli
                 Toast.makeText(mContext, "Saved to MyWishlist", Toast.LENGTH_SHORT).show();
             }
         }
-
-//        private void toggleButtons() {
-//            if (!(mAlbum.getPushId() == null)) {
-//                mCollectionImageButton.setVisibility(View.GONE);
-//                mWishlistListThumb.setVisibility(View.GONE);
-//            }
-//        }
     }
 }
