@@ -50,7 +50,7 @@
 
                     <TextView
                         android:id="@+id/cardFormat"
-                        android:layout_width="75dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/cardTitle"
                         android:layout_marginLeft="8dp"
@@ -63,14 +63,14 @@
 
                     <TextView
                         android:id="@+id/cardCountry"
-                        android:layout_width="75dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_toLeftOf="@+id/cardFormat"
                         android:text="Country"
-                        android:textColor="@color/colorPrimaryLight"
+                        android:textColor="@color/colorPrimaryDark"
                         card_view:layout_constraintRight_toRightOf="parent"
                         card_view:layout_constraintTop_toBottomOf="@+id/cardTitle" />
 
