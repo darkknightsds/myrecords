@@ -106,6 +106,7 @@
                         android:layout_marginEnd="24dp" />
 
                     <View
+                        android:id="@+id/dividerView"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_marginLeft="8dp"
@@ -119,7 +120,7 @@
                         android:layout_marginTop="4dp" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/collectionButtonText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Collection"
@@ -132,7 +133,7 @@
                         android:layout_marginEnd="8dp" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/wishlistButtonText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Wishlist"

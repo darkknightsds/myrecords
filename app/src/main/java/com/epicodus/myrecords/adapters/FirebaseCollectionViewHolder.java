@@ -31,6 +31,10 @@ public class FirebaseCollectionViewHolder extends RecyclerView.ViewHolder implem
     Context mContext;
     private Album mAlbum;
     private ImageButton mWishlistButton;
+    private ImageButton mCollectionButton;
+    private TextView mCollectionText;
+    private TextView mWishlistText;
+    private View mDividerView;
 
     public FirebaseCollectionViewHolder(View itemView) {
         super(itemView);
@@ -44,7 +48,11 @@ public class FirebaseCollectionViewHolder extends RecyclerView.ViewHolder implem
         TextView wishlistTitle = (TextView) mView.findViewById(R.id.cardTitle);
         TextView wishlistFormat = (TextView) mView.findViewById(R.id.cardFormat);
         TextView wishlistCountry = (TextView) mView.findViewById(R.id.cardCountry);
-        mWishlistButton= (ImageButton) mView.findViewById(R.id.collectionImageButton);
+        mWishlistButton = (ImageButton) mView.findViewById(R.id.wishlistImageButton);
+        mCollectionButton = (ImageButton) mView.findViewById(R.id.collectionImageButton);
+        mCollectionText = (TextView) mView.findViewById(R.id.collectionButtonText);
+        mWishlistText = (TextView) mView.findViewById(R.id.wishlistButtonText);
+        mDividerView = mView.findViewById(R.id.dividerView);
 
         Picasso.with(mContext)
                 .load(album.getThumb())
@@ -92,7 +100,10 @@ public class FirebaseCollectionViewHolder extends RecyclerView.ViewHolder implem
     private void toggleButtons() {
         if (!(mAlbum.getPushId() == null)) {
             mWishlistButton.setVisibility(View.GONE);
-//            mWishlistListThumb.setVisibility(View.GONE);
+            mCollectionButton.setVisibility(View.GONE);
+            mCollectionText.setVisibility(View.GONE);
+            mWishlistText.setVisibility(View.GONE);
+            mDividerView.setVisibility(View.GONE);
         }
     }
 }
