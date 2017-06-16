@@ -10,18 +10,22 @@ public class Album {
     String country;
     String thumb;
     String url;
+    String splitArtist;
+    String splitTitle;
     private String pushId;
 
     public Album() {
     }
 
-    public Album(String title, String year, String format, String country, String thumb, String url) {
+    public Album(String title, String year, String format, String country, String thumb, String url, String splitArtist, String splitTitle) {
         this.title = title;
         this.year = year;
         this.format = format;
         this.country = country;
         this.thumb = thumb;
         this.url = url;
+        this.splitArtist = splitArtist;
+        this.splitTitle = splitTitle;
     }
 
     public String getTitle() {
@@ -54,5 +58,13 @@ public class Album {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getSplitArtist() {
+        return splitArtist;
+    }
+
+    public String getSplitTitle() {
+        return splitTitle;
     }
 }

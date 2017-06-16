@@ -1,5 +1,7 @@
 package com.epicodus.myrecords.services;
 
+import android.util.Log;
+
 import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.models.Album;
 
@@ -42,6 +44,10 @@ public class DiscogsService {
                 for (int i = 0; i < resultsJSON.length(); i++) {
                     JSONObject albumJSON = resultsJSON.getJSONObject(i);
                     String title = albumJSON.getString("title");
+                    String[] split = title.split(" - ");
+                    String splitArtist = split[0];
+                    String splitTitle = split[1];
+                    Log.d("title", split[1]);
                     String year = albumJSON.getString("year");
                     ArrayList<String> format = new ArrayList<>();
                     JSONArray formatJSON = albumJSON.getJSONArray("format");
@@ -53,7 +59,7 @@ public class DiscogsService {
                     String thumb = albumJSON.getString("thumb");
                     String uri = albumJSON.getString("uri");
                     String url = "https://www.discogs.com" + uri;
-                    Album album = new Album(title, year, convertedFormat, country, thumb, url);
+                    Album album = new Album(title, year, convertedFormat, country, thumb, url, splitArtist, splitTitle);
                     albums.add(album);
                 }
             }
