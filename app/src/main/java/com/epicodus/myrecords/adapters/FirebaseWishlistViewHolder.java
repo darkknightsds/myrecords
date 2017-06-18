@@ -12,6 +12,7 @@ import com.epicodus.myrecords.Constants;
 import com.epicodus.myrecords.R;
 import com.epicodus.myrecords.models.Album;
 import com.epicodus.myrecords.ui.AlbumDetail;
+import com.epicodus.myrecords.util.ItemTouchHelperViewHolder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     View mView;
     Context mContext;
     private Album mAlbum;
@@ -64,37 +65,6 @@ public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implemen
         toggleButtons();
     }
 
-    @Override
-    public void onClick(View view) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        final ArrayList<Album> albums = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_WISHLIST).child(uid);
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    albums.add(snapshot.getValue(Album.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, AlbumDetail.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("albums", Parcels.wrap(albums));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
-
     private void toggleButtons() {
         if (!(mAlbum.getPushId() == null)) {
             mWishlistButton.setVisibility(View.GONE);
@@ -103,5 +73,22 @@ public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implemen
             mWishlistText.setVisibility(View.GONE);
             mDividerView.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void onItemSelected() {
+        itemView.animate()
+                .alpha(0.7f)
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(500);
+    }
+
+    @Override
+    public void onItemClear() {
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f);
     }
 }
