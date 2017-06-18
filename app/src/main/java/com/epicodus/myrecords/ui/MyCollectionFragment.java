@@ -29,7 +29,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyCollectionFragment extends Fragment {
-    private DatabaseReference mCollectionRef;
     private FirebaseCollectionAdapter mFirebaseAdapter;
     @BindView(R.id.apiRecycler) RecyclerView mRecyclerView;
     private ItemTouchHelper mItemTouchHelper;
@@ -43,14 +42,6 @@ public class MyCollectionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_album_list, container, false);
         ButterKnife.bind(this, view);
-
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String uid = user.getUid();
-//
-//        mCollectionRef = FirebaseDatabase
-//                .getInstance()
-//                .getReference(Constants.FIREBASE_CHILD_COLLECTION)
-//                .child(uid);
 
         setUpFirebaseAdapter();
 
@@ -68,15 +59,6 @@ public class MyCollectionFragment extends Fragment {
 
         mFirebaseAdapter = new FirebaseCollectionAdapter(Album.class, R.layout.saved_album_list_cards, FirebaseCollectionViewHolder.class, mQuery, mOnStartDragListener, getActivity());
 
-//        mFirebaseAdapter = new FirebaseRecyclerAdapter<Album, FirebaseCollectionViewHolder>
-//                (Album.class, R.layout.saved_album_list_cards, FirebaseCollectionViewHolder.class,
-//                        mCollectionRef) {
-//
-//            @Override
-//            protected void populateViewHolder(FirebaseCollectionViewHolder viewHolder, Album model, int position) {
-//                viewHolder.bindWishlist(model);
-//            }
-//        };
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mFirebaseAdapter);

@@ -19,15 +19,16 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseCollectionAdapter extends FirebaseRecyclerAdapter<Album, FirebaseCollectionViewHolder> implements ItemTouchHelperAdapter {
+
+public class FirebaseWishlistAdapter extends FirebaseRecyclerAdapter<Album, FirebaseWishlistViewHolder> implements ItemTouchHelperAdapter {
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
     private ChildEventListener mChildEventListener;
     private ArrayList<Album> mAlbums = new ArrayList<>();
-    private FirebaseCollectionViewHolder mViewHolder;
+    private FirebaseWishlistViewHolder mViewHolder;
 
-    public FirebaseCollectionAdapter(Class<Album> modelClass, int modelLayout, Class<FirebaseCollectionViewHolder> viewHolderClass, Query ref, OnStartDragListener onStartDragListener, Context context) {
+    public FirebaseWishlistAdapter(Class<Album> modelClass, int modelLayout, Class<FirebaseWishlistViewHolder> viewHolderClass, Query ref, OnStartDragListener onStartDragListener, Context context) {
         super(modelClass, modelLayout, viewHolderClass, ref);
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
@@ -62,7 +63,7 @@ public class FirebaseCollectionAdapter extends FirebaseRecyclerAdapter<Album, Fi
     }
 
     @Override
-    protected void populateViewHolder(final FirebaseCollectionViewHolder viewHolder, Album model, int position) {
+    protected void populateViewHolder(final FirebaseWishlistViewHolder viewHolder, Album model, int position) {
         viewHolder.bindWishlist(model);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {

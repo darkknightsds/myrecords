@@ -39,7 +39,6 @@ public class FirebaseWishlistViewHolder extends RecyclerView.ViewHolder implemen
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindWishlist(Album album) {
