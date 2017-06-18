@@ -28,7 +28,7 @@ public class AlbumDetail extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mAlbums = Parcels.unwrap(getIntent().getParcelableExtra("albums"));
-        int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
+        int startingPosition = getIntent().getIntExtra("position", 0);
         
         adapterViewPager = new WishlistPagerAdapter(getSupportFragmentManager(), mAlbums);
         mViewPager.setAdapter(adapterViewPager);

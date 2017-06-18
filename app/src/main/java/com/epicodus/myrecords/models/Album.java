@@ -13,6 +13,7 @@ public class Album {
     String splitArtist;
     String splitTitle;
     private String pushId;
+    String index;
 
     public Album() {
     }
@@ -26,6 +27,7 @@ public class Album {
         this.url = url;
         this.splitArtist = splitArtist;
         this.splitTitle = splitTitle;
+        this.index = "not_specified";
     }
 
     public String getTitle() {
@@ -66,5 +68,13 @@ public class Album {
 
     public String getSplitTitle() {
         return splitTitle;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }
