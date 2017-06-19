@@ -65,7 +65,6 @@ public class AlbumDetailFragment extends Fragment implements View.OnClickListene
         mWishlistYear.setText(mAlbum.getYear());
         mWishlistFormat.setText(mAlbum.getFormat());
         mWishlistCountry.setText(mAlbum.getCountry());
-        mWishlistUrl.setText(mAlbum.getUrl());
         mWishlistUrl.setOnClickListener(this);
         mWishlistButton.setOnClickListener(this);
         mCollectionButton.setOnClickListener(this);
