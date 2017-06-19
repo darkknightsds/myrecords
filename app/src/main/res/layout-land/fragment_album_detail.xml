@@ -1,0 +1,145 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.myrecords.ui.AlbumDetailFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/wishlistThumb"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/unavailable"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/wishlistTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toLeftOf="@id/wishlistThumb"
+            android:text="Album Artist | Album Name"
+            android:textColor="@color/colorTextIcons"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wishlistThumb" />
+
+
+        <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_access_time_white_24dp"
+                    android:drawablePadding="10dp"
+                    android:text="Year"
+                    android:id="@+id/wishlistYear"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/colorTextIcons"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/wishlistTitle2"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="@+id/wishlistTitle2" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_album_white_24dp"
+                    android:drawablePadding="10dp"
+                    android:text="Album Format"
+                    android:id="@+id/wishlistFormat"
+                    android:layout_below="@+id/wishlistYear"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/colorTextIcons"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/wishlistYear"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="@+id/wishlistTitle2"
+                    app:layout_constraintHorizontal_bias="0.517" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_language_white_24dp"
+                    android:drawablePadding="10dp"
+                    android:text="Country of Origin"
+                    android:id="@+id/wishlistCountry"
+                    android:layout_below="@+id/wishlistFormat"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/colorTextIcons"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/wishlistFormat"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="@+id/wishlistTitle2" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
+                    android:drawablePadding="10dp"
+                    android:text="View on Discogs"
+                    android:id="@+id/wishlistUrl"
+                    android:layout_below="@+id/wishlistCountry"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/colorTextIcons"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/wishlistCountry"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="@+id/wishlistTitle2"
+                    app:layout_constraintHorizontal_bias="0.554" />
+
+        <Button
+            android:id="@+id/saveCollectionButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/saveWishlistButton"
+            android:layout_marginRight="8dp"
+            android:background="@color/colorPrimaryLight"
+            android:text="Add To MyCollection"
+            android:textColor="@color/colorTextIcons"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/saveWishlistButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="8dp"
+            android:background="@color/colorAccent"
+            android:text="Save To MyWishlist"
+            android:textColor="@color/colorTextIcons"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/saveCollectionButton" />
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
